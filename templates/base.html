@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Néstor Jimeno{% endblock %}</title>
+    <link rel="stylesheet" href="{{ static_url(template_name, static_css) }}">
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <div class="logo-container">
+                <a href="https://nestorjimeno.com" class="logo">Néstor Jimeno</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; <!-- Icono de hamburguesa -->
+            </button>
+            <ul class="navbar" id="navbar">
+                <li><a href="{{ url(home) }}">Inicio</a></li>
+                <li><a href="{{ get_page_blog(1) }}">Blog</a></li>
+                <li><a href="{{ url(sobre_mi) }}">Sobre mí</a></li>
+                <li><a href="{{ url(contacto) }}">Contacto</a></li>
+                <li><a href="{{ url(newsletter) }}">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Botón para volver arriba con flecha -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio">
+        ↑
+    </button>
+  
+
+    <footer>
+        <p>&copy; 2025 nestorjimeno.com - Todos los derechos reservados.</p>
+        <p><a href="{{ url(aviso_legal) }}" target="_blank">Aviso legal</a> - <a href="{{ url(politica_de_privacidad) }}" target="_blank">Política de privacidad</a> - <a href="{{ url(politica_de_cookies) }}" target="_blank">Política de cookies</a></p>
+
+    </footer>
+
+    <script src="{{ static_url(template_name, static_js) }}"></script>
+</body>
+</html>

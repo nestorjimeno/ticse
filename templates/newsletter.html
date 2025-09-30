@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Newsletter{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>¡Suscríbete a mi Newsletter!</h1>
+    <p>Aquí puedes suscribirte a la newsletter:</p>
+    {% include 'newsletter_form.html' %}
+</section>
+{% endblock %}

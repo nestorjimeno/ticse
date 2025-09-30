@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Mi Web{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Bienvenido a mi página web</h1>
+    <p>Explora nuestro contenido y descubre lo que tenemos para ofrecerte.</p>
+    <p>Otra cosa que puedes hacer es dejarme tu correo por aquí y te avisaré cada vez que publique un artículo.</p>
+    <br><br>
+    {% include 'newsletter_form.html' %}
+</section>
+{% endblock %}

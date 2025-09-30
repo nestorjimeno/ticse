@@ -1,0 +1,40 @@
+
+
+<form id="contactForm" novalidate>
+  <input type="text" id="name" name="name" placeholder="Tu nombre (opcional)" />
+  <br>
+  <input type="email" id="email" name="email" required placeholder="Tu correo electrónico" />
+  <br>
+  <input type="text" id="subject" name="subject" placeholder="Asunto (opcional)" />
+  <br>
+  <textarea id="message" name="message" required placeholder="Tu mensaje"></textarea>
+  
+  <label id="checkboxNewsletterTyC">
+    <input type="checkbox" id="terminos" name="terminos" required>
+    Acepto el <a href="{{ url(aviso_legal) }}" target="_blank">Aviso legal</a>.
+  </label>
+  
+  <label id="checkboxNewsletterPP">
+    <input type="checkbox" id="consentimiento" name="consentimiento" required>
+    Acepto la <a href="{{ url(politica_de_privacidad) }}" target="_blank">Política de privacidad</a>.
+  </label>
+  
+  <button type="submit" id="contactSubmitButton">Enviar mensaje</button>
+</form>
+
+<div id="responseMessage">
+  <span id="closeButton" class="close-btn">&times;</span>
+  <p id="responseText"></p>
+</div>
+
+<div id="loadingOverlay" style="display: none;">
+  <div class="spinner-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="0" fill="currentColor">
+        <animate attributeName="r" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" repeatCount="indefinite" values="0;11"/>
+        <animate attributeName="opacity" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" repeatCount="indefinite" values="1;0"/>
+      </circle>
+    </svg>
+    <p>Procesando...</p>
+  </div>
+</div>

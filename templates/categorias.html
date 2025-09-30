@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Mi Web{% endblock %}
+
+{% block content %}
+    <div class="blog-container">
+        <h1>{{ tag.name }}</h1>
+        <div class="posts">
+            {% for post in posts.values() %}
+                {% if tag in post.tags %}
+                    <article class="post">
+                        <h2 class="post-title">
+                            <a href="{{ remove_filename_from_url(url(blog_home)) }}/{{post['slug'] + '.html'}}">
+                            {{ post.title }}
+                            </a>
+                        </h2>
+                        <span class="post-date">Publicado el {{ post.date }}</span>
+                        <div class="post-content">
+                            {{ post.summary | safe }}
+                        </div>
+                    </article>
+                    <hr>
+                {% endif %}
+            {% else %}
+            <p>No hay publicaciones aún.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

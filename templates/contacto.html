@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Mi Web{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Contacto</h1>
+    <p>Si tienes algo que contarme, puedes hacerlo a través del formulario de esta página.</p>
+    <p>Aunque, si por cualquier cosa, el formulario no te gusta o te da problemas,
+         también puedes enviarme un correo a <a href="mailto:contacto@nestorjimeno.com">contacto@nestorjimeno.com</a></p>.
+
+    {% include 'contact_form.html' %}
+
+</section>
+{% endblock %}

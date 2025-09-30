@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Mi Web{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Te has registrado...</h1>
+
+    <div id="responseMessage" class="success" style="display: block;">
+        <span id="closeButton" class="close-btn">&times;</span>
+        <p id="responseText">Te acabo de enviar un correo, revísalo.</p>
+    </div>
+</section>
+{% endblock %}
