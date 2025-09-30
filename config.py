@@ -29,7 +29,7 @@ configuration = {
         "newsletter": "newsletter.html",
         "registrado": "registrado.html",
         "sobre_mi": "sobre-mi.html",
-        "error": "error.html",
+        "error": "404.html",
         "aviso_legal": "aviso-legal.html",
         "politica_de_cookies": "politica-de-cookies.html",
         "politica_de_privacidad": "politica-de-privacidad.html",
