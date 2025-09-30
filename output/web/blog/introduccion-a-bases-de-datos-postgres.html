@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Web</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <div class="logo-container">
+                <a href="https://nestorjimeno.com" class="logo">Néstor Jimeno</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; <!-- Icono de hamburguesa -->
+            </button>
+            <ul class="navbar" id="navbar">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/sobre-mi.html">Sobre mí</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/newsletter.html">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+<article>
+  <div class="breadcrumbs">
+    <a href="/index.html">Inicio</a>    >    
+    <a href="/blog/index.html">Blog</a>    >    
+    <a href="/blog/introduccion-a-bases-de-datos-postgres.html">Introducción a bases de datos Postgres</a> 
+  </div>
+  <header class="single-post-header">
+    <h1 class="single-post-title">Introducción a bases de datos Postgres</h1>
+    <!--<div class="single-post-meta">
+      <span class="single-post-meta-item">Escrito por: Néstor Jimeno</span>
+    </div>-->
+    <div class="single-post-meta">
+      <span class="single-post-meta-item">Actualizado el martes 11 de marzo de 2025</span>
+    </div>
+    <div class="single-post-meta">
+      
+      <div class="single-post-tags">
+        
+        <a href="/categorias/postgres.html" class="single-post-tag">Postgres</a>
+        
+        <a href="/categorias/bases-de-datos.html" class="single-post-tag">Bases de datos</a>
+        
+      </div>
+      
+    </div>
+  </header>
+  <section class="single-post-content">
+    <style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #282C34; color: #ABB2BF }
+.highlight .c { color: #7F848E } /* Comment */
+.highlight .err { color: #ABB2BF } /* Error */
+.highlight .esc { color: #ABB2BF } /* Escape */
+.highlight .g { color: #ABB2BF } /* Generic */
+.highlight .k { color: #C678DD } /* Keyword */
+.highlight .l { color: #ABB2BF } /* Literal */
+.highlight .n { color: #E06C75 } /* Name */
+.highlight .o { color: #56B6C2 } /* Operator */
+.highlight .x { color: #ABB2BF } /* Other */
+.highlight .p { color: #ABB2BF } /* Punctuation */
+.highlight .ch { color: #7F848E } /* Comment.Hashbang */
+.highlight .cm { color: #7F848E } /* Comment.Multiline */
+.highlight .cp { color: #7F848E } /* Comment.Preproc */
+.highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
+.highlight .c1 { color: #7F848E } /* Comment.Single */
+.highlight .cs { color: #7F848E } /* Comment.Special */
+.highlight .gd { color: #ABB2BF } /* Generic.Deleted */
+.highlight .ge { color: #ABB2BF } /* Generic.Emph */
+.highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
+.highlight .gr { color: #ABB2BF } /* Generic.Error */
+.highlight .gh { color: #ABB2BF } /* Generic.Heading */
+.highlight .gi { color: #ABB2BF } /* Generic.Inserted */
+.highlight .go { color: #ABB2BF } /* Generic.Output */
+.highlight .gp { color: #ABB2BF } /* Generic.Prompt */
+.highlight .gs { color: #ABB2BF } /* Generic.Strong */
+.highlight .gu { color: #ABB2BF } /* Generic.Subheading */
+.highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+.highlight .kc { color: #E5C07B } /* Keyword.Constant */
+.highlight .kd { color: #C678DD } /* Keyword.Declaration */
+.highlight .kn { color: #C678DD } /* Keyword.Namespace */
+.highlight .kp { color: #C678DD } /* Keyword.Pseudo */
+.highlight .kr { color: #C678DD } /* Keyword.Reserved */
+.highlight .kt { color: #E5C07B } /* Keyword.Type */
+.highlight .ld { color: #ABB2BF } /* Literal.Date */
+.highlight .m { color: #D19A66 } /* Literal.Number */
+.highlight .s { color: #98C379 } /* Literal.String */
+.highlight .na { color: #E06C75 } /* Name.Attribute */
+.highlight .nb { color: #E5C07B } /* Name.Builtin */
+.highlight .nc { color: #E5C07B } /* Name.Class */
+.highlight .no { color: #E06C75 } /* Name.Constant */
+.highlight .nd { color: #61AFEF } /* Name.Decorator */
+.highlight .ni { color: #E06C75 } /* Name.Entity */
+.highlight .ne { color: #E06C75 } /* Name.Exception */
+.highlight .nf { color: #61AFEF; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #E06C75 } /* Name.Label */
+.highlight .nn { color: #E06C75 } /* Name.Namespace */
+.highlight .nx { color: #E06C75 } /* Name.Other */
+.highlight .py { color: #E06C75 } /* Name.Property */
+.highlight .nt { color: #E06C75 } /* Name.Tag */
+.highlight .nv { color: #E06C75 } /* Name.Variable */
+.highlight .ow { color: #56B6C2 } /* Operator.Word */
+.highlight .pm { color: #ABB2BF } /* Punctuation.Marker */
+.highlight .w { color: #ABB2BF } /* Text.Whitespace */
+.highlight .mb { color: #D19A66 } /* Literal.Number.Bin */
+.highlight .mf { color: #D19A66 } /* Literal.Number.Float */
+.highlight .mh { color: #D19A66 } /* Literal.Number.Hex */
+.highlight .mi { color: #D19A66 } /* Literal.Number.Integer */
+.highlight .mo { color: #D19A66 } /* Literal.Number.Oct */
+.highlight .sa { color: #98C379 } /* Literal.String.Affix */
+.highlight .sb { color: #98C379 } /* Literal.String.Backtick */
+.highlight .sc { color: #98C379 } /* Literal.String.Char */
+.highlight .dl { color: #98C379 } /* Literal.String.Delimiter */
+.highlight .sd { color: #98C379 } /* Literal.String.Doc */
+.highlight .s2 { color: #98C379 } /* Literal.String.Double */
+.highlight .se { color: #98C379 } /* Literal.String.Escape */
+.highlight .sh { color: #98C379 } /* Literal.String.Heredoc */
+.highlight .si { color: #98C379 } /* Literal.String.Interpol */
+.highlight .sx { color: #98C379 } /* Literal.String.Other */
+.highlight .sr { color: #98C379 } /* Literal.String.Regex */
+.highlight .s1 { color: #98C379 } /* Literal.String.Single */
+.highlight .ss { color: #98C379 } /* Literal.String.Symbol */
+.highlight .bp { color: #E5C07B } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #56B6C2; font-weight: bold } /* Name.Function.Magic */
+.highlight .vc { color: #E06C75 } /* Name.Variable.Class */
+.highlight .vg { color: #E06C75 } /* Name.Variable.Global */
+.highlight .vi { color: #E06C75 } /* Name.Variable.Instance */
+.highlight .vm { color: #E06C75 } /* Name.Variable.Magic */
+.highlight .il { color: #D19A66 } /* Literal.Number.Integer.Long */
+
+            div.highlight {
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px 0 0 0;
+            }
+            pre {
+                word-wrap: break-word;       /* Divide palabras largas si es necesario */
+                overflow-x: auto;            /* Añade desplazamiento horizontal si el contenido es demasiado ancho */
+                max-width: 100%;             /* Limita el ancho del bloque al contenedor */
+                border-radius: 5px;          /* Bordes redondeados */
+            }
+            code {
+                color: #eb5757;
+                border-width: 0px;
+                padding: 2px 5px;
+                font-size: .9em;
+                font-weight: 600;
+                margin-left: .125rem;
+                margin-right: .125rem;
+                border-radius: .375rem;
+                --tw-bg-opacity: 1;
+                background-color: rgb(236 236 236 / var(--tw-bg-opacity, 1));
+            }
+            </style>
+<!-- author: Néstor Jimeno -->
+<!-- date: 2025-03-11 -->
+<!-- tags: Postgres, Bases de datos -->
+<!-- language: spanish -->
+<p>Si alguna vez has trabajado con <strong>bases de datos</strong>, es probable que te suene <strong>PostgreSQL</strong>. Pero, si no lo has hecho todavía, déjame decirte que es uno de los sistemas de gestión de bases de datos más completos y poderosos que existen. Y lo mejor de todo, es <strong>open source</strong>, lo que significa que puedes usarlo de manera gratuita y tener acceso completo a su código fuente.</p>
+<p>PostgreSQL es una <strong>base de datos relacional</strong>, es mucho más que una simple herramienta para almacenar datos. Se conoce por ser <strong>robusta, escalable y flexible</strong>, lo que la convierte en la opción preferida para muchos proyectos, desde aplicaciones simples hasta sistemas críticos para empresas de todo el mundo. En este artículo, te voy a contar qué hace tan especial a PostgreSQL y por qué es tan popular entre los desarrolladores.</p>
+<h2>¿Qué es PostgreSQL?</h2>
+<p>PostgreSQL es un sistema de gestión de bases de datos relacional (RDBMS), que significa que <strong>organiza los datos en tablas y usa relaciones entre ellas</strong> para gestionar la información. Lo que hace que PostgreSQL destaque sobre otros sistemas como <strong>MySQL</strong> o <strong>SQLite</strong> es su potente conjunto de características.</p>
+<p>Algunas de sus características destacadas incluyen:</p>
+<ul>
+<li>
+<p>Soporte para transacciones ACID: Esto garantiza que tus operaciones de bases de datos sean atómicas, consistentes, aisladas y duraderas, lo cual es fundamental para asegurar que los datos se mantengan integrados y confiables.</p>
+</li>
+<li>
+<p>Tipos de datos avanzados: PostgreSQL soporta no solo los tipos de datos básicos como enteros y cadenas, sino también tipos más avanzados como <strong>JSON</strong>, <strong>HSTORE</strong>, <strong>arrays</strong> y más. Esto lo hace perfecto para manejar datos no estructurados o semi-estructurados.</p>
+</li>
+<li>
+<p>Extensibilidad: Si necesitas funcionalidades adicionales, puedes escribir tus propias funciones o usar extensiones como PostGIS para trabajar con datos geoespaciales o Full-Text Search para realizar búsquedas avanzadas.</p>
+</li>
+<li>
+<p>Soporte para SQL y consultas complejas: Si vienes de un entorno SQL tradicional, PostgreSQL es completamente compatible con SQL estándar. Pero no solo eso, sino que puedes escribir consultas súper complejas, incluidas subconsultas, uniones, y funciones agregadas.</p>
+</li>
+</ul>
+<h2>Un poco de historia</h2>
+<p>PostgreSQL tiene una larga historia que se remonta a la década de los 80. Fue creado por <strong>Michael Stonebraker</strong> y su equipo en la Universidad de California, Berkeley, como parte de un proyecto llamado Postgres. La idea era mejorar las bases de datos relacionales existentes, permitiendo la incorporación de nuevas características como los tipos de datos complejos y consultas más avanzadas.</p>
+<p>Con el tiempo, Postgres evolucionó a lo que conocemos hoy como <strong>PostgreSQL</strong>. El proyecto <strong>ha sido completamente abierto desde sus inicios</strong> y sigue siendo mantenido por una comunidad activa de desarrolladores. Hoy en día, es utilizado por algunas de las plataformas más grandes, como <strong>Instagram</strong>, <strong>Spotify</strong> y <strong>Netflix</strong>, lo que demuestra su confiabilidad y escalabilidad.</p>
+<h2>¿Por qué PostgreSQL es tan popular?</h2>
+<ul>
+<li>
+<p>Es <strong>completamente gratuito</strong>: Al ser open source, puedes descargar y usar PostgreSQL sin pagar un solo euro. Esto lo hace accesible para cualquier tipo de proyecto, desde startups hasta grandes empresas.</p>
+</li>
+<li>
+<p>Escalabilidad: PostgreSQL maneja grandes volúmenes de datos sin problema, lo que lo convierte en una excelente opción para aplicaciones que necesitan escalar. Ya sea que estés trabajando en una pequeña aplicación o en una plataforma masiva, PostgreSQL puede crecer contigo.</p>
+</li>
+<li>
+<p>Soporte para datos complejos: Con su soporte para JSON y JSONB, puedes almacenar datos no estructurados y realizar consultas complejas sobre ellos, lo que es ideal para aplicaciones que necesitan almacenar datos de manera flexible, evitando la tediosa tarea de convertir o comprobar tipos de datos.</p>
+</li>
+<li>
+<p>Comunidad activa: Dado que PostgreSQL es de código abierto, cuenta con una <strong>comunidad activa</strong> que constantemente contribuye con nuevas funcionalidades, mejoras de rendimiento y <strong>correcciones de seguridad</strong>. Además, hay mucha documentación y tutoriales disponibles para aprender rápidamente.</p>
+</li>
+<li>
+<p>Consistencia y confiabilidad: PostgreSQL es famoso por su fiabilidad. Utiliza un sistema de commit log para registrar todas las operaciones realizadas en la base de datos, lo que asegura que no se pierdan datos, incluso si el sistema falla repentinamente.</p>
+</li>
+</ul>
+<h2>Instalación y primeros pasos</h2>
+<p>Instalar PostgreSQL en Windows es sencillo y solo requiere unos pocos pasos. Primero, descarga el instalador desde el sitio oficial de PostgreSQL: <a href="https://www.postgresql.org/download/windows/">https://www.postgresql.org/download/windows/</a>.</p>
+<p>Una vez que hayas descargado el instalador, sigue estos pasos:</p>
+<ul>
+<li>Ejecuta el archivo descargado y selecciona los componentes que deseas instalar (normalmente los predeterminados son suficientes).</li>
+<li>Establece una contraseña para el superusuario postgres. Esta contraseña es importante, así que elige una que recuerdes.</li>
+<li>Elige el puerto en el que PostgreSQL escuchará (el puerto predeterminado es 5432, que está bien en la mayoría de los casos).</li>
+<li>Completa la instalación y asegúrate de que el servicio de PostgreSQL esté habilitado para iniciarse automáticamente.</li>
+</ul>
+<p>Una vez instalado, puedes acceder a PostgreSQL a través de la herramienta pgAdmin o usar la línea de comandos. Si prefieres trabajar con la terminal, usa los siguientes comandos para conectarte:</p>
+<pre><div class="highlight"><pre><span></span>psql<span class="w"> </span>-U<span class="w"> </span>postgres
+</pre></div>
+</pre>
+<p>Esto te pedirá la contraseña que configuraste durante la instalación, y una vez ingresada, estarás dentro de la interfaz de línea de comandos de PostgreSQL.</p>
+<h3>Primeros comandos</h3>
+<p>Algunos de los primeros comandos que puedes probar al iniciar con PostgreSQL son:</p>
+<p>Ver las bases de datos:</p>
+<pre><div class="highlight"><pre><span></span><span class="err">\</span><span class="n">l</span>
+</pre></div>
+</pre>
+<p>Crear una nueva base de datos:</p>
+<pre><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">mi_base_de_datos</span><span class="p">;</span>
+</pre></div>
+</pre>
+<p>Conectarse a una base de datos:</p>
+<pre><div class="highlight"><pre><span></span><span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">mi_base_de_datos</span>
+</pre></div>
+</pre>
+<p>Ver las tablas:</p>
+<pre><div class="highlight"><pre><span></span><span class="err">\</span><span class="n">dt</span>
+</pre></div>
+</pre>
+<h2>Características avanzadas</h2>
+<p>Cuando te sientas más cómodo con PostgreSQL, hay un montón de características avanzadas que puedes explorar. Algunas de las más populares son:</p>
+<ul>
+<li>
+<p>Índices y optimización: PostgreSQL permite crear índices para mejorar la velocidad de las consultas. Puedes usar índices en columnas que usas con frecuencia en filtros y búsquedas.</p>
+</li>
+<li>
+<p>Transacciones: PostgreSQL permite realizar transacciones, lo que asegura que varias operaciones de bases de datos sean completadas de manera exitosa o revertidas si algo falla.</p>
+</li>
+<li>
+<p>Particionamiento de tablas: Si tienes tablas muy grandes, puedes dividirlas en particiones para mejorar la gestión y el rendimiento.</p>
+</li>
+<li>
+<p>Extensiones: Como mencioné antes, PostgreSQL tiene muchas extensiones que puedes instalar para añadir nuevas funcionalidades. Algunas populares son <strong>PostGIS</strong> para trabajar con datos geoespaciales y <strong>pg_trgm</strong> para hacer búsquedas de texto más eficientes.</p>
+</li>
+</ul>
+<p>PostgreSQL no solo es una herramienta potente y gratuita para gestionar bases de datos, sino que es ideal para quienes necesitan una solución flexible y escalable. Desde pequeños proyectos hasta sistemas críticos, PostgreSQL se adapta a tus necesidades. Si estás empezando con bases de datos o quieres ampliar tus conocimientos, darle una oportunidad a PostgreSQL es una excelente decisión.</p>
+  </section>
+</article>
+
+    </main>
+
+    <!-- Botón para volver arriba con flecha -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio">
+        ↑
+    </button>
+  
+
+    <footer>
+        <p>&copy; 2025 nestorjimeno.com - Todos los derechos reservados.</p>
+        <p><a href="/aviso-legal.html" target="_blank">Aviso legal</a> - <a href="/politica-de-privacidad.html" target="_blank">Política de privacidad</a> - <a href="/politica-de-cookies.html" target="_blank">Política de cookies</a></p>
+
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

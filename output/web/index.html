@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Web</title>
+    <link rel="stylesheet" href="static\css\styles.css">
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <div class="logo-container">
+                <a href="https://nestorjimeno.com" class="logo">Néstor Jimeno</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; <!-- Icono de hamburguesa -->
+            </button>
+            <ul class="navbar" id="navbar">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/sobre-mi.html">Sobre mí</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/newsletter.html">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+<section class="hero">
+    <h1>Bienvenido a mi página web</h1>
+    <p>Explora nuestro contenido y descubre lo que tenemos para ofrecerte.</p>
+    <p>Otra cosa que puedes hacer es dejarme tu correo por aquí y te avisaré cada vez que publique un artículo.</p>
+    <br><br>
+    
+
+<form id="newsletterForm" novalidate>
+  <input type="email" id="email" name="email" required placeholder="Tu correo electrónico" />
+  
+  <label id="checkboxNewsletterTyC" >
+    <input type="checkbox" id="terminos" name="terminos" required>
+    Acepto el <a href="/aviso-legal.html" target="_blank">Aviso legal</a>.
+  </label>
+  
+  <label id="checkboxNewsletterPP" >
+    <input type="checkbox" id="consentimiento" name="consentimiento" required>
+    Acepto la <a href="/politica-de-privacidad.html" target="_blank">Política de privacidad</a>.
+  </label>
+  
+  <button type="submit" id='submitButton'>Suscribirme</button>
+</form>
+
+<div id="responseMessage">
+  <span id="closeButton" class="close-btn">&times;</span>
+  <p id="responseText"></p>
+</div>
+
+<div id="loadingOverlay" style="display: none;">
+  <div class="spinner-container">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="0" fill="currentColor">
+        <animate attributeName="r" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" repeatCount="indefinite" values="0;11"/>
+        <animate attributeName="opacity" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" repeatCount="indefinite" values="1;0"/>
+      </circle>
+    </svg>
+    <p>Procesando...</p>
+  </div>
+</div>
+
+<div id="responseMessage"></div>
+</section>
+
+    </main>
+
+    <!-- Botón para volver arriba con flecha -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio">
+        ↑
+    </button>
+  
+
+    <footer>
+        <p>&copy; 2025 nestorjimeno.com - Todos los derechos reservados.</p>
+        <p><a href="/aviso-legal.html" target="_blank">Aviso legal</a> - <a href="/politica-de-privacidad.html" target="_blank">Política de privacidad</a> - <a href="/politica-de-cookies.html" target="_blank">Política de cookies</a></p>
+
+    </footer>
+
+    <script src="static\js\script.js"></script>
+</body>
+</html>

@@ -82,4 +82,4 @@ if __name__ == '__main__':
     logger = setup_logger(__name__)
     locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
 
-    main(debug=True)
+    main(debug=False)

@@ -32,7 +32,6 @@ class TemplateManager():
         try:
             template_name = template_name.replace('\\', '/')
             template = self.env.get_template(template_name)
-            print(template)
             
             if not self.config['debug']:
                 output_dir = os.path.join(self.config['paths']['output_dir'], 'web')

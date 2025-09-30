@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Web</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <div class="logo-container">
+                <a href="https://nestorjimeno.com" class="logo">Néstor Jimeno</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; <!-- Icono de hamburguesa -->
+            </button>
+            <ul class="navbar" id="navbar">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/sobre-mi.html">Sobre mí</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/newsletter.html">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+<article>
+  <div class="breadcrumbs">
+    <a href="/index.html">Inicio</a>    >    
+    <a href="/blog/index.html">Blog</a>    >    
+    <a href="/blog/introduccion-a-nginx.html">Introducción a Nginx</a> 
+  </div>
+  <header class="single-post-header">
+    <h1 class="single-post-title">Introducción a Nginx</h1>
+    <!--<div class="single-post-meta">
+      <span class="single-post-meta-item">Escrito por: Néstor Jimeno</span>
+    </div>-->
+    <div class="single-post-meta">
+      <span class="single-post-meta-item">Actualizado el martes 11 de marzo de 2025</span>
+    </div>
+    <div class="single-post-meta">
+      
+      <div class="single-post-tags">
+        
+        <a href="/categorias/nginx.html" class="single-post-tag">Nginx</a>
+        
+        <a href="/categorias/desarrollo-de-software.html" class="single-post-tag">Desarrollo de software</a>
+        
+        <a href="/categorias/servidores.html" class="single-post-tag">Servidores</a>
+        
+      </div>
+      
+    </div>
+  </header>
+  <section class="single-post-content">
+    <style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #282C34; color: #ABB2BF }
+.highlight .c { color: #7F848E } /* Comment */
+.highlight .err { color: #ABB2BF } /* Error */
+.highlight .esc { color: #ABB2BF } /* Escape */
+.highlight .g { color: #ABB2BF } /* Generic */
+.highlight .k { color: #C678DD } /* Keyword */
+.highlight .l { color: #ABB2BF } /* Literal */
+.highlight .n { color: #E06C75 } /* Name */
+.highlight .o { color: #56B6C2 } /* Operator */
+.highlight .x { color: #ABB2BF } /* Other */
+.highlight .p { color: #ABB2BF } /* Punctuation */
+.highlight .ch { color: #7F848E } /* Comment.Hashbang */
+.highlight .cm { color: #7F848E } /* Comment.Multiline */
+.highlight .cp { color: #7F848E } /* Comment.Preproc */
+.highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
+.highlight .c1 { color: #7F848E } /* Comment.Single */
+.highlight .cs { color: #7F848E } /* Comment.Special */
+.highlight .gd { color: #ABB2BF } /* Generic.Deleted */
+.highlight .ge { color: #ABB2BF } /* Generic.Emph */
+.highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
+.highlight .gr { color: #ABB2BF } /* Generic.Error */
+.highlight .gh { color: #ABB2BF } /* Generic.Heading */
+.highlight .gi { color: #ABB2BF } /* Generic.Inserted */
+.highlight .go { color: #ABB2BF } /* Generic.Output */
+.highlight .gp { color: #ABB2BF } /* Generic.Prompt */
+.highlight .gs { color: #ABB2BF } /* Generic.Strong */
+.highlight .gu { color: #ABB2BF } /* Generic.Subheading */
+.highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+.highlight .kc { color: #E5C07B } /* Keyword.Constant */
+.highlight .kd { color: #C678DD } /* Keyword.Declaration */
+.highlight .kn { color: #C678DD } /* Keyword.Namespace */
+.highlight .kp { color: #C678DD } /* Keyword.Pseudo */
+.highlight .kr { color: #C678DD } /* Keyword.Reserved */
+.highlight .kt { color: #E5C07B } /* Keyword.Type */
+.highlight .ld { color: #ABB2BF } /* Literal.Date */
+.highlight .m { color: #D19A66 } /* Literal.Number */
+.highlight .s { color: #98C379 } /* Literal.String */
+.highlight .na { color: #E06C75 } /* Name.Attribute */
+.highlight .nb { color: #E5C07B } /* Name.Builtin */
+.highlight .nc { color: #E5C07B } /* Name.Class */
+.highlight .no { color: #E06C75 } /* Name.Constant */
+.highlight .nd { color: #61AFEF } /* Name.Decorator */
+.highlight .ni { color: #E06C75 } /* Name.Entity */
+.highlight .ne { color: #E06C75 } /* Name.Exception */
+.highlight .nf { color: #61AFEF; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #E06C75 } /* Name.Label */
+.highlight .nn { color: #E06C75 } /* Name.Namespace */
+.highlight .nx { color: #E06C75 } /* Name.Other */
+.highlight .py { color: #E06C75 } /* Name.Property */
+.highlight .nt { color: #E06C75 } /* Name.Tag */
+.highlight .nv { color: #E06C75 } /* Name.Variable */
+.highlight .ow { color: #56B6C2 } /* Operator.Word */
+.highlight .pm { color: #ABB2BF } /* Punctuation.Marker */
+.highlight .w { color: #ABB2BF } /* Text.Whitespace */
+.highlight .mb { color: #D19A66 } /* Literal.Number.Bin */
+.highlight .mf { color: #D19A66 } /* Literal.Number.Float */
+.highlight .mh { color: #D19A66 } /* Literal.Number.Hex */
+.highlight .mi { color: #D19A66 } /* Literal.Number.Integer */
+.highlight .mo { color: #D19A66 } /* Literal.Number.Oct */
+.highlight .sa { color: #98C379 } /* Literal.String.Affix */
+.highlight .sb { color: #98C379 } /* Literal.String.Backtick */
+.highlight .sc { color: #98C379 } /* Literal.String.Char */
+.highlight .dl { color: #98C379 } /* Literal.String.Delimiter */
+.highlight .sd { color: #98C379 } /* Literal.String.Doc */
+.highlight .s2 { color: #98C379 } /* Literal.String.Double */
+.highlight .se { color: #98C379 } /* Literal.String.Escape */
+.highlight .sh { color: #98C379 } /* Literal.String.Heredoc */
+.highlight .si { color: #98C379 } /* Literal.String.Interpol */
+.highlight .sx { color: #98C379 } /* Literal.String.Other */
+.highlight .sr { color: #98C379 } /* Literal.String.Regex */
+.highlight .s1 { color: #98C379 } /* Literal.String.Single */
+.highlight .ss { color: #98C379 } /* Literal.String.Symbol */
+.highlight .bp { color: #E5C07B } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #56B6C2; font-weight: bold } /* Name.Function.Magic */
+.highlight .vc { color: #E06C75 } /* Name.Variable.Class */
+.highlight .vg { color: #E06C75 } /* Name.Variable.Global */
+.highlight .vi { color: #E06C75 } /* Name.Variable.Instance */
+.highlight .vm { color: #E06C75 } /* Name.Variable.Magic */
+.highlight .il { color: #D19A66 } /* Literal.Number.Integer.Long */
+
+            div.highlight {
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px 0 0 0;
+            }
+            pre {
+                word-wrap: break-word;       /* Divide palabras largas si es necesario */
+                overflow-x: auto;            /* Añade desplazamiento horizontal si el contenido es demasiado ancho */
+                max-width: 100%;             /* Limita el ancho del bloque al contenedor */
+                border-radius: 5px;          /* Bordes redondeados */
+            }
+            code {
+                color: #eb5757;
+                border-width: 0px;
+                padding: 2px 5px;
+                font-size: .9em;
+                font-weight: 600;
+                margin-left: .125rem;
+                margin-right: .125rem;
+                border-radius: .375rem;
+                --tw-bg-opacity: 1;
+                background-color: rgb(236 236 236 / var(--tw-bg-opacity, 1));
+            }
+            </style>
+<!-- author: Néstor Jimeno -->
+<!-- date: 2025-03-11 -->
+<!-- tags: Nginx, Desarrollo de software, Servidores -->
+<!-- language: spanish -->
+<p><strong>Nginx</strong> es uno de los componentes que se utiliza en casi todas las aplicaciones web modernas, aunque no siempre se conoce o no se le da la importancia que merece. Si alguna vez has desplegado una aplicación web o trabajado con servidores, te habrás encontrado con él, ya que es uno de los servidores web más populares y eficientes del mundo. Pero, <strong>¿qué lo hace tan especial?</strong></p>
+<p>En términos simples, <strong>Nginx es un servidor web</strong>, pero su verdadero poder radica en lo que puede hacer además de servir páginas web. A diferencia de otros servidores tradicionales como <strong>Apache</strong>, Nginx es conocido por su <strong>alto rendimiento</strong>, su capacidad para manejar una <strong>gran cantidad de conexiones simultáneas</strong>, y su eficiencia en la <strong>distribución de carga</strong>.</p>
+<h2>Historia de Nginx</h2>
+<p>Nginx fue creado en 2004 por <strong>Igor Sysoev</strong>, un ingeniero ruso. La necesidad de Nginx surgió de un problema común en el mundo de los servidores web: cómo manejar grandes cantidades de tráfico con recursos limitados. Los servidores tradicionales, como Apache, empezaban a tener problemas al manejar miles de conexiones simultáneas, ya que creaban un hilo por cada conexión, lo que generaba un alto consumo de recursos.</p>
+<p><strong>Igor Sysoev diseñó Nginx para ser más eficiente</strong> utilizando un <strong>enfoque basado en eventos</strong>. En lugar de crear un hilo por cada conexión, Nginx maneja las solicitudes de manera asíncrona, lo que le permite manejar miles de conexiones con un consumo mínimo de recursos. Esta arquitectura le dio una ventaja considerable en términos de rendimiento, lo que lo llevó a ser adoptado por grandes plataformas de tráfico pesado.</p>
+<h2>Características clave de Nginx</h2>
+<ul>
+<li>
+<p><strong>Servidor Web y Proxy Reverso</strong>: Aunque Nginx es comúnmente conocido como servidor web, una de sus características más poderosas es su capacidad como <strong>proxy reverso</strong>. Esto significa que Nginx puede recibir solicitudes de los usuarios y redirigirlas a otros servidores o aplicaciones, como servidores de aplicaciones (Django, Node.js, etc.), equilibradores de carga o incluso servidores de bases de datos. Esta funcionalidad es muy útil en arquitecturas modernas de <strong>aplicaciones distribuidas</strong>.</p>
+</li>
+<li>
+<p><strong>Manejo eficiente de conexiones</strong>: Una de las principales razones por las que Nginx es tan rápido es su modelo de <strong>procesamiento asíncrono</strong>. A diferencia de servidores como Apache, que asignan un hilo para cada conexión, Nginx usa un solo hilo principal para manejar miles de conexiones de manera concurrente. Esto reduce el uso de memoria y aumenta la velocidad, especialmente cuando se gestionan grandes cantidades de tráfico.</p>
+</li>
+<li>
+<p><strong>Equilibrio de carga (Load Balancing)</strong>: Nginx puede distribuir el tráfico entrante entre varios servidores backend. Esto se hace de manera inteligente para garantizar que ninguna de las máquinas esté sobrecargada y que la carga se distribuya de manera uniforme. Hay diferentes métodos de balanceo de carga (round-robin, IP hash, etc.) que Nginx puede aplicar según las necesidades del sistema y que te cuento en otros artículos.</p>
+</li>
+<li>
+<p><strong>SSL/TLS</strong>: Nginx es bastante eficiente en el manejo de <strong>conexiones seguras (HTTPS)</strong>. De hecho, es muy común utilizar Nginx como terminador SSL, lo que significa que Nginx maneja todo el proceso de encriptación y desencriptación de las conexiones seguras, liberando a los servidores backend de esta carga pesada.</p>
+</li>
+<li>
+<p><strong>Cacheo de contenido estático</strong>: Si bien los servidores de aplicaciones pueden generar contenido dinámico, el contenido estático (como imágenes, CSS o JavaScript) puede ser servido por Nginx de manera extremadamente rápida. Su capacidad para almacenar en caché este contenido y entregarlo sin necesidad de que el servidor de aplicaciones lo procese cada vez es uno de sus mayores puntos fuertes.</p>
+</li>
+</ul>
+<h2>Nginx en la práctica</h2>
+<p>En un entorno de producción, Nginx suele colocarse frente a servidores de aplicaciones o bases de datos para manejar las solicitudes HTTP o HTTPS y dirigirlas de manera eficiente. Aquí hay un ejemplo común de cómo se configura Nginx:</p>
+<ul>
+<li>Servidor web (por ejemplo, para servir archivos estáticos): Si tienes una aplicación que usa archivos estáticos como imágenes, CSS o JavaScript, puedes configurar Nginx para servir esos archivos directamente desde el sistema de archivos. Esto reduce la carga de trabajo de tu servidor de aplicaciones, que puede enfocarse en generar contenido dinámico.</li>
+</ul>
+<p>-Proxy Inverso y Balanceo de Carga: Si tienes varias instancias de una aplicación en diferentes servidores, Nginx puede actuar como un proxy inverso para balancear el tráfico entre esas instancias. Nginx enviará las solicitudes entrantes a uno de los servidores disponibles según el método de balanceo de carga configurado.</p>
+<p>Aquí te dejo un pequeño ejemplo de la configuración básica para un servidor web que sirve archivos estáticos y hace proxy a un servidor de aplicaciones:</p>
+<pre><div class="highlight"><pre><span></span><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># Servir archivos estáticos</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/static/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/misitio</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1"># Proxy inverso para servidor de aplicaciones</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8000</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</pre>
+<p>En este caso, cualquier solicitud a <code>/static/</code> será atendida directamente por Nginx desde el sistema de archivos, mientras que las demás solicitudes se redirigirán a un servidor de aplicaciones en localhost:8000.</p>
+<h2>¿Por qué Nginx es tan popular?</h2>
+<p>La razón de su popularidad se resume en dos palabras: velocidad y escabilidad. Nginx puede manejar miles de conexiones simultáneas sin requerir mucha memoria o recursos, lo que lo hace ideal para aplicaciones de alto tráfico. Además, su flexibilidad permite integrarlo fácilmente en todo tipo de arquitecturas, desde simples sitios web estáticos hasta aplicaciones web distribuidas a gran escala.</p>
+<p>Hoy en día, Nginx es utilizado por gigantes como <strong>Netflix</strong>, <strong>WordPress</strong>, <strong>Dropbox</strong> y muchas otras empresas que necesitan un servidor web rápido, confiable y fácil de escalar. Y, con la creciente popularidad de arquitecturas basadas en microservicios, el uso de Nginx como proxy inverso y balanceador de carga se ha convertido en una práctica estándar.</p>
+<h2>Algunas limitaciones de Nginx</h2>
+<p>Aunque Nginx es increíblemente rápido y eficiente, <strong>no es la solución perfecta para todos los casos</strong>. Por ejemplo, en comparación con Apache, Nginx tiene menos soporte para modificaciones dinámicas de contenido, como la ejecución de scripts PHP. Además, su configuración, aunque poderosa, puede ser compleja para quienes no están familiarizados con la sintaxis de Nginx.</p>
+<p>A pesar de esto, Nginx es un servidor web y proxy inverso increíblemente potente y flexible. Su eficiencia, rapidez y capacidad de escalar lo convierten en una opción esencial para aplicaciones web de alto rendimiento.</p>
+  </section>
+</article>
+
+    </main>
+
+    <!-- Botón para volver arriba con flecha -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio">
+        ↑
+    </button>
+  
+
+    <footer>
+        <p>&copy; 2025 nestorjimeno.com - Todos los derechos reservados.</p>
+        <p><a href="/aviso-legal.html" target="_blank">Aviso legal</a> - <a href="/politica-de-privacidad.html" target="_blank">Política de privacidad</a> - <a href="/politica-de-cookies.html" target="_blank">Política de cookies</a></p>
+
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
