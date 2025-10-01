@@ -31,21 +31,21 @@
   <div class="breadcrumbs">
     <a href="/index.html">Inicio</a>    >    
     <a href="/blog/index.html">Blog</a>    >    
-    <a href="/blog/introduccion-a-git.html">Introducción a Git</a> 
+    <a href="/blog/introduccion-a-tls.html">Introducción a TLS</a> 
   </div>
   <header class="single-post-header">
-    <h1 class="single-post-title">Introducción a Git</h1>
+    <h1 class="single-post-title">Introducción a TLS</h1>
     <!--<div class="single-post-meta">
       <span class="single-post-meta-item">Escrito por: Néstor Jimeno</span>
     </div>-->
     <div class="single-post-meta">
-      <span class="single-post-meta-item">Actualizado el martes 30 de septiembre de 2025</span>
+      <span class="single-post-meta-item">Actualizado el miÃ©rcoles 01 de octubre de 2025</span>
     </div>
     <div class="single-post-meta">
       
       <div class="single-post-tags">
         
-        <a href="/categorias/git.html" class="single-post-tag">Git</a>
+        <a href="/categorias/seguridad.html" class="single-post-tag">Seguridad</a>
         
         <a href="/categorias/desarrollo-de-software.html" class="single-post-tag">Desarrollo de software</a>
         
@@ -165,66 +165,110 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
             }
             </style>
 <!-- author: Néstor Jimeno -->
-<!-- date: 2025-09-30 -->
-<!-- tags: Git, Desarrollo de software -->
+<!-- date: 2025-10-01 -->
+<!-- tags: Seguridad, Desarrollo de software -->
 <!-- language: spanish -->
-<p><strong>Git</strong> es una herramienta que cambió por completo la forma en que trabajamos con código. Si alguna vez has hecho un trabajo en grupo, seguro que has tenido que hacer cambios en archivos y has tenido esa sensación de miedo a borrar algo que no debías. Para evitar esto es para lo que se concibe Git. </p>
-<p>Git es un <strong>sistema de control de versiones</strong>, lo que significa que te ayuda a gestionar los cambios en el código a lo largo del tiempo, sin preocuparte por perder trabajo o pisar el de otros.</p>
-<p>Este software nació en 2005, de la mano de <strong>Linus Torvalds</strong>, el creador de <strong>Linux</strong>, que lo desarrolló porque el sistema de control de versiones que usaba para desarrollar Linux, llamado BitKeeper, dejó de ser gratuito. Torvalds necesitaba algo robusto, rápido y, sobre todo, gratis. </p>
-<p>En pocas palabras y como la mayoría de las aplicaciones que terminan siendo grandes, <strong>Git nació como una necesidad</strong>.</p>
-<h2>El impacto de Git en la industria del software</h2>
-<p>Git no solo transformó el desarrollo de Linux, sino que rápidamente se convirtió en el estándar para proyectos de cualquier tamaño. Antes de su nacimiento, las herramientas de control de versiones tenían limitaciones a la hora de manejar proyectos distribuidos o gestionar cambios de manera eficiente. Con Git, los desarrolladores podían trabajar de forma más autónoma, sin depender de un servidor central. Esto permitió que equipos de desarrollo de todo el mundo pudieran colaborar de manera más eficiente, incluso sin estar conectados todo el tiempo a la misma red.</p>
-<p>Git es una herramienta distribuida. Esto significa que <strong>cada desarrollador tiene una copia completa del repositorio</strong> en su propia máquina, con todo el historial de cambios. No depende de un servidor central para saber qué ha pasado en el proyecto, lo que lo hace ideal para trabajar de forma remota o cuando la conexión a internet no es estable. Además, la estructura distribuida <strong>permite trabajar de manera mucho más segura</strong>: si un servidor central se cae, todos los colaboradores aún tienen acceso completo al proyecto en sus máquinas locales.</p>
-<h2>El crecimiento de Git gracias a plataformas como GitHub</h2>
-<p>Las plataformas como <strong>GitHub</strong>, <strong>GitLab</strong> y <strong>Bitbucket</strong> jugaron un papel clave en la popularización de Git. Estas plataformas no solo permitieron almacenar repositorios remotos de forma segura, sino que también agregaron funcionalidades que facilitaron la colaboración, como <em>pull requests</em>, revisiones de código y gestión de proyectos. GitHub, en particular, impulsó el software de código abierto a otro nivel al centralizar la colaboración y simplificar la contribución de miles de desarrolladores en todo el mundo.</p>
-<h2>Git y la cultura de código abierto</h2>
-<p>Uno de los mayores logros de Git ha sido su impacto en el <strong>software de código abierto</strong>. Gracias a plataformas como GitHub, miles de desarrolladores han podido colaborar en proyectos globales sin estar físicamente presentes en el mismo lugar. Git permitió que el código abierto creciera a una velocidad nunca antes vista, con contribuciones de miles de personas alrededor del mundo. Esto cambió la forma en que las aplicaciones se desarrollan, distribuyen y mantienen.</p>
-<h2>Principales conceptos de Git</h2>
-<p>Git está lleno de términos que a primera vista pueden sonar complicados, pero en realidad son bastante fáciles de entender una vez te acostumbras a ellos. Aquí te dejo algunos de los más importantes:</p>
+<p>TLS, siglas de Transport Layer Security (Seguridad en la Capa de Transporte), es un protocolo de seguridad, es decir, un conjunto de reglas, que define cómo se cifran las comunicaciones en internet para proteger la privacidad y asegurar la integridad de los datos entre un cliente (generalmente un navegador) y un servidor.</p>
+<p>Vamos a verlo con un ejemplo. </p>
+<h2>Conexión inicial o <em>handshake</em></h2>
+<p>Cuando un navegador accede a una web, por ejemplo https://nestorjimeno.com, se produce lo siguiente:</p>
+<ol>
+<li>
+<p>El navegador abre una conexión TCP con el servidor, por ejemplo a través del puerto 443 para HTTPS y envía un mensaje inicial llamado <strong><em>ClientHello</em></strong>, que contiene:</p>
 <ul>
-<li>
-<p><strong>Commit</strong>: Es el acto de <strong>registrar</strong> los cambios que has hecho en tu código. Cuando haces un <em>commit</em>, Git guarda una instantánea de tu proyecto en ese momento, creando un registro permanente en el historial de cambios.</p>
+<li>Las versiones de TLS que soporta (por ejemplo TLS 1.2, TLS 1.3).</li>
+<li>Una lista de algoritmos de cifrado y firmas que puede utilizar (<strong>ciphersuite</strong>).</li>
+<li>Un número aleatorio que servirá para generar la clave de sesión (más adelante vemos qué es).</li>
+<li>Opcionalmente, extensiones como SNI (Server Name Indication) que indica a qué dominio quiere conectarse. </li>
+</ul>
 </li>
 <li>
-<p><strong>Branch</strong>: Una rama es como una "copia paralela" del proyecto. Permite trabajar en nuevas características o correcciones sin afectar al código principal. Las ramas son fáciles de crear y eliminar, lo que facilita la experimentación y el trabajo en equipo.</p>
+<p>El servidor responde con un <strong><em>ServerHello</em></strong>, indicando:</p>
+<ul>
+<li>La versión TLS que eligió (la más alta que ambos soportan).</li>
+<li>La <strong>ciphersuite</strong> que se usará para cifrar la sesión.</li>
+<li>Otro número aleatorio del servidor.</li>
+</ul>
+<p>Con esto, ambos lados tienen suficiente información para generar claves de sesión seguras.</p>
 </li>
 <li>
-<p><strong>Merge</strong>: Es el proceso de <strong>fusionar los cambios de una rama con otra</strong>. Si dos desarrolladores han trabajado en diferentes ramas y ahora quieren combinar sus cambios, hacen un <em>merge</em> para integrar ambos conjuntos de cambios.</p>
+<p>El servidor envía su <strong>certificado digital</strong>, que contiene el nombre de la web, la <strong>clave pública del servidor</strong> y la firma digital de una <strong>Autoridad de Certificadora (CA)</strong> confiable. </p>
+<p>Cuando una CA firma un certificado, aplica un hash sobre él y lo cifra con su clave privada. El navegador utiliza la clave pública de la CA que está almacenada en su lista de CAs raíz confiables y descifra la firma. Compara el hash que estaba cifrado con el hash del certificado y, si coinciden, se demuestra que no ha sido modificado y que se puede confiar en que proviene de la CA que se dice.</p>
+<p>El navegador también verifica que el certificado no haya expirado y que el dominio que contiene coincida con el de la web a la que está intentando acceder. </p>
+<p>Si todo es correcto, el navegador sabe que está hablando con el servidor legítimo, aunque en algunos casos el servidor también puede pedir un certificado del cliente para una autenticación mutua.</p>
 </li>
 <li>
-<p><strong>Remote</strong>: Aunque tu repositorio local tiene todo el historial de cambios, en equipos grandes es común tener un <strong>repositorio remoto</strong> (en GitHub, GitLab, etc.) donde se almacena el código y se sincronizan los cambios entre varios desarrolladores.</p>
+<p>El navegador genera una <strong>clave de sesión</strong> para evitar usar la clave pública para todo. La cifra con la clave pública del servidor y se la envía. De esta manera el servidor puede descifrarla con su clave privada y así ambos tienen la misma clave secreta para cifrado simétrico y que sirve sólo para esa sesión.</p>
+</li>
+<li>
+<p>Finalmente ambos lados envían un mensaje indicando que todas las futuras comunicaciones irán cifradas con la clave de sesión. Se intercambian hashes de verificación para asegurar que el handshake no fue modificado por un atacante y, a partir de aquí, la comunicación es cifrada y segura, y todo el tráfico (HTTP, datos, formularios, etc.) se protege mediante TLS.</p>
+</li>
+<li>
+<p>Cuando cierras la web o se termina la sesión, la clave de sesión se descarta y, la próxima vez que se acceda a la web, se repite el proceso.</p>
+</li>
+</ol>
+<h2>¿Qué es una Autoridad Certificadora?</h2>
+<p>Una Autoridad Certificadora (CA, por sus siglas en inglés) es una entidad de confianza que emite certificados digitales. Estos certificados se usan para probar la identidad de un sitio web, persona o dispositivo en Internet y aseguran que, cuando te conectas a un servidor, puedes confiar en que realmente es quien dice ser y que la comunicación será segura. Por ejemplo, cuando entras a https://google.com, tu navegador confía en Google porque su certificado está firmado por una CA reconocida como DigiCert o Let’s Encrypt.</p>
+<p>Las CAs funcionan en un modelo jerárquico:</p>
+<ol>
+<li>
+<p>CA raíz: Es la autoridad más importante y de confianza máxima. Su certificado está preinstalado en todos los sistemas operativos y navegadores. Firma las CA intermedias, no directamente los sitios webs.</p>
+</li>
+<li>
+<p>CA intermedia: Firma certificados de los sitios webs o servidores en nombre de la raíz. Se usa para proteger la CA raíz, evitando que se comprometa directamente, mejorando la seguridad: si se compromete una intermedia, la raíz sigue segura.</p>
+</li>
+<li>
+<p>Certificados finales: Son los que usan los servidores, páginas web o dispositivos. Están firmados por la CA intermedia o raíz, por lo que el navegador los acepta.</p>
+</li>
+</ol>
+<p>Cuando visitas https://miempresa.com:</p>
+<ol>
+<li>
+<p>El navegador recibe el certificado del servidor.</p>
+</li>
+<li>
+<p>Comprueba quién lo firmó → encuentra la CA intermedia.</p>
+</li>
+<li>
+<p>Comprueba quién firmó la CA intermedia → encuentra la CA raíz.</p>
+</li>
+<li>
+<p>Si la CA raíz está en la lista de confianza del navegador, entonces confía en todo el certificado y muestra el candado verde.</p>
+</li>
+</ol>
+<p>Esto se llama cadena de confianza o <strong>“chain of trust”</strong>.</p>
+<h3>Autoridad Certificadora raíz</h3>
+<p>En octubre de 2025, existen más de 85 Autoridades Certificadoras (CAs) reconocidas por navegadores y sistemas operativos. Sin embargo, solo una pequeña fracción de ellas emite la gran mayoría de los certificados digitales utilizados en Internet. Las seis principales CAs que emiten el 90% de los certificados SSL/TLS son:</p>
+<ul>
+<li>Let’s Encrypt – 64% del mercado</li>
+<li>GlobalSign – 22.4%</li>
+<li>Sectigo – 5.9%</li>
+<li>DigiCert – 3.6%</li>
+<li>Entrust – 2.1%</li>
+<li>IdenTrust – 1.1%</li>
+</ul>
+<p>Cada sistema operativo y navegador mantiene su propia lista de CAs raíz confiables. Puedes consultar estas listas en:</p>
+<ul>
+<li>Microsoft Trusted Root Program: Lista oficial de CAs reconocidas por Microsoft.</li>
+<li>Mozilla Root Store: Lista de CAs confiables para Firefox y otros productos de Mozilla.</li>
+<li>Apple Root Certificate Program: Lista de CAs confiables para macOS y iOS.</li>
+<li>Common CA Database (CCADB): Base de datos pública mantenida por Mozilla y otras organizaciones.</li>
+</ul>
+<p>Las CAs raíz son fundamentales para la seguridad en línea. Si una CA raíz es comprometida, todos los certificados emitidos por ella también lo estarán. Por ello, los navegadores y sistemas operativos actualizan regularmente sus listas de CAs confiables para garantizar la seguridad de los usuarios.</p>
+<h3>Cómo ver tus certificados</h3>
+<p>En Windows, <code>certmgr.msc</code> es una herramienta que sirve para administrar certificados digitales en tu sistema. Permite ver, instalar, exportar, eliminar o inspeccionar certificados que usa tu Windows y los programas que dependen de él, desde navegadores a correo o VPN.</p>
+<p>Cuando lo abres (Win + R → <code>certmgr.msc</code> → Enter), verás varias carpetas organizadas por tipo de certificado:</p>
+<ul>
+<li>Personal: Certificados asociados a tu usuario que se usan para autenticación de correo, VPNs o firma de documentos digitales.</li>
+<li>Entidades de certificación raíz de confianza: Contiene los certificados de las CAs raíz que Windows y tus navegadores confían automáticamente. Todo certificado firmado por estas CAs será aceptado como válido.</li>
+<li>Entidades de certificación intermedias: Contiene CAs que firman certificados de servidores o usuarios en nombre de la raíz. Permite que Windows valide certificados que no son de la raíz directa.</li>
+<li>Otras carpetas: <ul>
+<li>Revocados: certificados que han sido invalidados.</li>
+<li>Terceros: certificados de confianza que no son raíz ni intermedia.</li>
+<li>Autoridades de certificación raíz confiables de empresa: usados en redes corporativas.</li>
+</ul>
 </li>
 </ul>
-<h2>Flujo de trabajo básico en Git</h2>
-<p>Un flujo de trabajo típico en Git sigue algunos pasos básicos. Supongamos que estás trabajando en una nueva característica de un proyecto. Primero, <strong>clonas el repositorio remoto</strong> en tu máquina local con el comando <code>clone</code>:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span><span class="p">&amp;</span>lt<span class="p">;</span>url-del-repo<span class="p">&amp;</span>gt<span class="p">;</span>
-</pre></div>
-</pre>
-<p>Luego, creas una nueva rama y te colocas en ella para trabajar en tu característica sin tocar el código principal. Para eso, se utiliza el comando <code>checkout -b</code>:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature-nueva
-</pre></div>
-</pre>
-<p>Cuando haces cambios en el código, los añades al área de preparación (<em>staging area</em>) con:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span><span class="p">&amp;</span>lt<span class="p">;</span>nombre-del-fichero<span class="p">&amp;</span>gt<span class="p">;</span>
-</pre></div>
-</pre>
-<p>También puedes utilizar un punto en vez de un nombre de fichero para añadir todos los archivos modificados:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-</pre></div>
-</pre>
-<p>Y luego los registras con un mensaje explicativo:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agregada nueva característica"</span>
-</pre></div>
-</pre>
-<p>Finalmente, subes tus cambios al repositorio remoto para compartirlos con los demás:</p>
-<pre><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature-nueva
-</pre></div>
-</pre>
-<p>Donde <em>origin</em> es el nombre del repositorio remoto, que se suele llamar <em>origin</em>, pero no es un nombre cerrado.</p>
-<h2>Algunas limitaciones o desafíos de Git</h2>
-<p>Aunque Git es increíblemente poderoso, tiene una curva de aprendizaje. Algunos conceptos, como el <strong>rebase</strong> o la <strong>resolución de conflictos</strong>, pueden resultar confusos para quienes se inician. Además, si no se usan bien las herramientas de Git, se pueden generar conflictos difíciles de resolver, especialmente cuando se trabaja en equipos grandes. A pesar de esto, la flexibilidad y el control que Git ofrece a los desarrolladores supera ampliamente estas dificultades.</p>
-<p>Git no solo cambió la forma en que desarrollamos software, sino que también creó una nueva manera de pensar sobre la colaboración y el control de versiones. Lo que comenzó como una herramienta para el desarrollo de Linux se convirtió rápidamente en el estándar de facto para cualquier tipo de proyecto de software.</p>
-<p>Los detalles, los dejo para el siguiente artículo...</p>
   </section>
 </article>
 

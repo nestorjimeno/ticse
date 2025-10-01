@@ -39,7 +39,7 @@ configuration = {
         "static_js": os.path.join("static", "js", "script.js"),
     },
     "settings":{
-        "posts_per_page": 3,
-        "categories_per_page": 4,
+        "posts_per_page": 15,
+        "categories_per_page": 15,
     },
 }
