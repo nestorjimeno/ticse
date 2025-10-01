@@ -1,7 +1,7 @@
 # Introducción a Git
 
 <!-- author: Néstor Jimeno -->
-<!-- date: 2025-03-11 -->
+<!-- date: 2025-09-30 -->
 <!-- tags: Git, Desarrollo de software -->
 <!-- language: spanish -->
 
@@ -9,23 +9,27 @@
 
 Git es un **sistema de control de versiones**, lo que significa que te ayuda a gestionar los cambios en el código a lo largo del tiempo, sin preocuparte por perder trabajo o pisar el de otros.
 
-Este software nació en 2005, creado por **Linus Torvalds**, el creador de **Linux**. La historia detrás de Git tiene un toque interesante: Torvalds lo creó porque el sistema de control de versiones que usaba para desarrollar Linux, llamado BitKeeper, dejó de ser gratuito. Torvalds necesitaba algo robusto, rápido y, sobre todo, gratis. 
+Este software nació en 2005, de la mano de **Linus Torvalds**, el creador de **Linux**, que lo desarrolló porque el sistema de control de versiones que usaba para desarrollar Linux, llamado BitKeeper, dejó de ser gratuito. Torvalds necesitaba algo robusto, rápido y, sobre todo, gratis. 
 
-En pocas palabras, **Git nació como una necesidad**. Lo curioso es que, en su inicio, Git no era precisamente la herramienta fácil de usar que es hoy. De hecho, sus primeros días fueron bastante duros, ya que su interfaz de línea de comandos era bastante críptica.
+En pocas palabras y como la mayoría de las aplicaciones que terminan siendo grandes, **Git nació como una necesidad**.
 
 ## El impacto de Git en la industria del software
 
-Git no solo transformó el desarrollo de Linux, sino que rápidamente se convirtió en el estándar para proyectos de cualquier tamaño. Antes de su nacimiento, las herramientas de control de versiones tenían limitaciones a la hora de manejar proyectos distribuidos o gestionar cambios de manera eficiente. Con Git, los desarrolladores podían trabajar de forma más autónoma, sin depender de un servidor central. Esto permitió que equipos de desarrollo alrededor del mundo pudieran colaborar de manera más eficiente, incluso sin estar conectados todo el tiempo a la misma red.
+Git no solo transformó el desarrollo de Linux, sino que rápidamente se convirtió en el estándar para proyectos de cualquier tamaño. Antes de su nacimiento, las herramientas de control de versiones tenían limitaciones a la hora de manejar proyectos distribuidos o gestionar cambios de manera eficiente. Con Git, los desarrolladores podían trabajar de forma más autónoma, sin depender de un servidor central. Esto permitió que equipos de desarrollo de todo el mundo pudieran colaborar de manera más eficiente, incluso sin estar conectados todo el tiempo a la misma red.
 
 Git es una herramienta distribuida. Esto significa que **cada desarrollador tiene una copia completa del repositorio** en su propia máquina, con todo el historial de cambios. No depende de un servidor central para saber qué ha pasado en el proyecto, lo que lo hace ideal para trabajar de forma remota o cuando la conexión a internet no es estable. Además, la estructura distribuida **permite trabajar de manera mucho más segura**: si un servidor central se cae, todos los colaboradores aún tienen acceso completo al proyecto en sus máquinas locales.
 
 ## El crecimiento de Git gracias a plataformas como GitHub
 
-Las plataformas como **GitHub**, **GitLab** y **Bitbucket** jugaron un papel clave en la popularización de Git. Estas plataformas no solo permitieron almacenar repositorios remotos de forma segura, sino que también agregaron funcionalidades que facilitaron la colaboración, como *pull requests*, revisiones de código y gestión de proyectos. GitHub, en particular, impulsó el software de código abierto a otro nivel, permitiendo a miles de desarrolladores de todo el mundo contribuir a proyectos sin necesidad de tener acceso directo al código fuente.
+Las plataformas como **GitHub**, **GitLab** y **Bitbucket** jugaron un papel clave en la popularización de Git. Estas plataformas no solo permitieron almacenar repositorios remotos de forma segura, sino que también agregaron funcionalidades que facilitaron la colaboración, como *pull requests*, revisiones de código y gestión de proyectos. GitHub, en particular, impulsó el software de código abierto a otro nivel al centralizar la colaboración y simplificar la contribución de miles de desarrolladores en todo el mundo.
+
+## Git y la cultura de código abierto
+
+Uno de los mayores logros de Git ha sido su impacto en el **software de código abierto**. Gracias a plataformas como GitHub, miles de desarrolladores han podido colaborar en proyectos globales sin estar físicamente presentes en el mismo lugar. Git permitió que el código abierto creciera a una velocidad nunca antes vista, con contribuciones de miles de personas alrededor del mundo. Esto cambió la forma en que las aplicaciones se desarrollan, distribuyen y mantienen.
 
 ## Principales conceptos de Git
 
-Git está lleno de términos que a primera vista pueden sonar complicados, pero en realidad son bastante fáciles de entender una vez que te acostumbras a ellos. Aquí te dejo algunos de los más importantes:
+Git está lleno de términos que a primera vista pueden sonar complicados, pero en realidad son bastante fáciles de entender una vez te acostumbras a ellos. Aquí te dejo algunos de los más importantes:
 
 - **Commit**: Es el acto de **registrar** los cambios que has hecho en tu código. Cuando haces un *commit*, Git guarda una instantánea de tu proyecto en ese momento, creando un registro permanente en el historial de cambios.
 
@@ -49,7 +53,13 @@ Luego, creas una nueva rama y te colocas en ella para trabajar en tu caracterís
 git checkout -b feature-nueva
 ```
 
-Cuando haces cambios en el código, los añades al área de preparación con:
+Cuando haces cambios en el código, los añades al área de preparación (*staging area*) con:
+
+```bash
+git add <nombre-del-fichero>
+```
+
+También puedes utilizar un punto en vez de un nombre de fichero para añadir todos los archivos modificados:
 
 ```bash
 git add .
@@ -67,9 +77,7 @@ Finalmente, subes tus cambios al repositorio remoto para compartirlos con los de
 git push origin feature-nueva
 ```
 
-## Git y la cultura de código abierto
-
-Uno de los mayores logros de Git ha sido su impacto en el **software de código abierto**. Gracias a plataformas como GitHub, miles de desarrolladores han podido colaborar en proyectos globales sin estar físicamente presentes en el mismo lugar. Git permitió que el código abierto creciera a una velocidad nunca antes vista, con contribuciones de miles de personas alrededor del mundo. Esto cambió la forma en que las aplicaciones se desarrollan, distribuyen y mantienen.
+Donde *origin* es el nombre del repositorio remoto, que se suele llamar *origin*, pero no es un nombre cerrado.
 
 ## Algunas limitaciones o desafíos de Git
 
