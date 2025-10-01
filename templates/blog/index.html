@@ -13,7 +13,7 @@
                       {{ post.title }}
                     </a>
                   </h2>
-                <span class="post-date">Actualizado el {{ post.date.strftime('%A %d de %B de %Y') }}</span>
+                <span class="post-date">Actualizado el {{ post.date.strftime('%A %#d de %B de %Y') }}</span>
                 <div class="post-content">
                     {{ post.summary | safe }}
                 </div>

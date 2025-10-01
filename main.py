@@ -80,6 +80,6 @@ def main(debug=True, update_only_blog=False):
 if __name__ == '__main__':
 
     logger = setup_logger(__name__)
-    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+    locale.setlocale(locale.LC_TIME, "Spanish_Spain.1252")
 
     main(debug=False)
