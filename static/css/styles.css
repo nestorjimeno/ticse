@@ -121,6 +121,32 @@ header.header {
     right: 1rem;
 }
 
+.toc {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.toc > ul {
+    list-style: none;
+    padding: 20px !important;
+    color: white;
+}
+
+.toc > ul {
+    background: linear-gradient(var(--primary-color), #111);
+    border-radius: 8px;
+    border: solid 2px var(--highlight-color);
+}
+
+.toctitle {
+    font-size: 2rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
 .menu-toggle {
     display: block;

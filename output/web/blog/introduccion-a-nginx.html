@@ -56,6 +56,15 @@
     </div>
   </header>
   <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#historia-de-nginx">Historia de Nginx</a></li>
+<li><a href="#caracteristicas-clave-de-nginx">Características clave de Nginx</a></li>
+<li><a href="#nginx-en-la-practica">Nginx en la práctica</a></li>
+<li><a href="#por-que-nginx-es-tan-popular">¿Por qué Nginx es tan popular?</a></li>
+<li><a href="#algunas-limitaciones-de-nginx">Algunas limitaciones de Nginx</a></li>
+</ul>
+</div>
+
     <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -172,10 +181,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- language: spanish -->
 <p><strong>Nginx</strong> es uno de los componentes que se utiliza en casi todas las aplicaciones web modernas, aunque no siempre se conoce o no se le da la importancia que merece. Si alguna vez has desplegado una aplicación web o trabajado con servidores, te habrás encontrado con él, ya que es uno de los servidores web más populares y eficientes del mundo. Pero, <strong>¿qué lo hace tan especial?</strong></p>
 <p>En términos simples, <strong>Nginx es un servidor web</strong>, pero su verdadero poder radica en lo que puede hacer además de servir páginas web. A diferencia de otros servidores tradicionales como <strong>Apache</strong>, Nginx es conocido por su <strong>alto rendimiento</strong>, su capacidad para manejar una <strong>gran cantidad de conexiones simultáneas</strong>, y su eficiencia en la <strong>distribución de carga</strong>.</p>
-<h2>Historia de Nginx</h2>
+<h2 id="historia-de-nginx">Historia de Nginx<a class="headerlink" href="#historia-de-nginx" title="Permanent link">¶</a></h2>
 <p>Nginx fue creado en 2004 por <strong>Igor Sysoev</strong>, un ingeniero ruso. La necesidad de Nginx surgió de un problema común en el mundo de los servidores web: cómo manejar grandes cantidades de tráfico con recursos limitados. Los servidores tradicionales, como Apache, empezaban a tener problemas al manejar miles de conexiones simultáneas, ya que creaban un hilo por cada conexión, lo que generaba un alto consumo de recursos.</p>
 <p><strong>Igor Sysoev diseñó Nginx para ser más eficiente</strong> utilizando un <strong>enfoque basado en eventos</strong>. En lugar de crear un hilo por cada conexión, Nginx maneja las solicitudes de manera asíncrona, lo que le permite manejar miles de conexiones con un consumo mínimo de recursos. Esta arquitectura le dio una ventaja considerable en términos de rendimiento, lo que lo llevó a ser adoptado por grandes plataformas de tráfico pesado.</p>
-<h2>Características clave de Nginx</h2>
+<h2 id="caracteristicas-clave-de-nginx">Características clave de Nginx<a class="headerlink" href="#caracteristicas-clave-de-nginx" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p><strong>Servidor Web y Proxy Reverso</strong>: Aunque Nginx es comúnmente conocido como servidor web, una de sus características más poderosas es su capacidad como <strong>proxy reverso</strong>. Esto significa que Nginx puede recibir solicitudes de los usuarios y redirigirlas a otros servidores o aplicaciones, como servidores de aplicaciones (Django, Node.js, etc.), equilibradores de carga o incluso servidores de bases de datos. Esta funcionalidad es muy útil en arquitecturas modernas de <strong>aplicaciones distribuidas</strong>.</p>
@@ -193,7 +202,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>Cacheo de contenido estático</strong>: Si bien los servidores de aplicaciones pueden generar contenido dinámico, el contenido estático (como imágenes, CSS o JavaScript) puede ser servido por Nginx de manera extremadamente rápida. Su capacidad para almacenar en caché este contenido y entregarlo sin necesidad de que el servidor de aplicaciones lo procese cada vez es uno de sus mayores puntos fuertes.</p>
 </li>
 </ul>
-<h2>Nginx en la práctica</h2>
+<h2 id="nginx-en-la-practica">Nginx en la práctica<a class="headerlink" href="#nginx-en-la-practica" title="Permanent link">¶</a></h2>
 <p>En un entorno de producción, Nginx suele colocarse frente a servidores de aplicaciones o bases de datos para manejar las solicitudes HTTP o HTTPS y dirigirlas de manera eficiente. Aquí hay un ejemplo común de cómo se configura Nginx:</p>
 <ul>
 <li>Servidor web (por ejemplo, para servir archivos estáticos): Si tienes una aplicación que usa archivos estáticos como imágenes, CSS o JavaScript, puedes configurar Nginx para servir esos archivos directamente desde el sistema de archivos. Esto reduce la carga de trabajo de tu servidor de aplicaciones, que puede enfocarse en generar contenido dinámico.</li>
@@ -218,10 +227,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 </pre>
 <p>En este caso, cualquier solicitud a <code>/static/</code> será atendida directamente por Nginx desde el sistema de archivos, mientras que las demás solicitudes se redirigirán a un servidor de aplicaciones en localhost:8000.</p>
-<h2>¿Por qué Nginx es tan popular?</h2>
+<h2 id="por-que-nginx-es-tan-popular">¿Por qué Nginx es tan popular?<a class="headerlink" href="#por-que-nginx-es-tan-popular" title="Permanent link">¶</a></h2>
 <p>La razón de su popularidad se resume en dos palabras: velocidad y escabilidad. Nginx puede manejar miles de conexiones simultáneas sin requerir mucha memoria o recursos, lo que lo hace ideal para aplicaciones de alto tráfico. Además, su flexibilidad permite integrarlo fácilmente en todo tipo de arquitecturas, desde simples sitios web estáticos hasta aplicaciones web distribuidas a gran escala.</p>
 <p>Hoy en día, Nginx es utilizado por gigantes como <strong>Netflix</strong>, <strong>WordPress</strong>, <strong>Dropbox</strong> y muchas otras empresas que necesitan un servidor web rápido, confiable y fácil de escalar. Y, con la creciente popularidad de arquitecturas basadas en microservicios, el uso de Nginx como proxy inverso y balanceador de carga se ha convertido en una práctica estándar.</p>
-<h2>Algunas limitaciones de Nginx</h2>
+<h2 id="algunas-limitaciones-de-nginx">Algunas limitaciones de Nginx<a class="headerlink" href="#algunas-limitaciones-de-nginx" title="Permanent link">¶</a></h2>
 <p>Aunque Nginx es increíblemente rápido y eficiente, <strong>no es la solución perfecta para todos los casos</strong>. Por ejemplo, en comparación con Apache, Nginx tiene menos soporte para modificaciones dinámicas de contenido, como la ejecución de scripts PHP. Además, su configuración, aunque poderosa, puede ser compleja para quienes no están familiarizados con la sintaxis de Nginx.</p>
 <p>A pesar de esto, Nginx es un servidor web y proxy inverso increíblemente potente y flexible. Su eficiencia, rapidez y capacidad de escalar lo convierten en una opción esencial para aplicaciones web de alto rendimiento.</p>
   </section>

@@ -54,6 +54,16 @@
     </div>
   </header>
   <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#el-impacto-de-git-en-la-industria-del-software">El impacto de Git en la industria del software</a></li>
+<li><a href="#el-crecimiento-de-git-gracias-a-plataformas-como-github">El crecimiento de Git gracias a plataformas como GitHub</a></li>
+<li><a href="#git-y-la-cultura-de-codigo-abierto">Git y la cultura de código abierto</a></li>
+<li><a href="#principales-conceptos-de-git">Principales conceptos de Git</a></li>
+<li><a href="#flujo-de-trabajo-basico-en-git">Flujo de trabajo básico en Git</a></li>
+<li><a href="#algunas-limitaciones-o-desafios-de-git">Algunas limitaciones o desafíos de Git</a></li>
+</ul>
+</div>
+
     <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -172,14 +182,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Git es un <strong>sistema de control de versiones</strong>, lo que significa que te ayuda a gestionar los cambios en el código a lo largo del tiempo, sin preocuparte por perder trabajo o pisar el de otros.</p>
 <p>Este software nació en 2005, de la mano de <strong>Linus Torvalds</strong>, el creador de <strong>Linux</strong>, que lo desarrolló porque el sistema de control de versiones que usaba para desarrollar Linux, llamado BitKeeper, dejó de ser gratuito. Torvalds necesitaba algo robusto, rápido y, sobre todo, gratis. </p>
 <p>En pocas palabras y como la mayoría de las aplicaciones que terminan siendo grandes, <strong>Git nació como una necesidad</strong>.</p>
-<h2>El impacto de Git en la industria del software</h2>
+<h2 id="el-impacto-de-git-en-la-industria-del-software">El impacto de Git en la industria del software<a class="headerlink" href="#el-impacto-de-git-en-la-industria-del-software" title="Permanent link">¶</a></h2>
 <p>Git no solo transformó el desarrollo de Linux, sino que rápidamente se convirtió en el estándar para proyectos de cualquier tamaño. Antes de su nacimiento, las herramientas de control de versiones tenían limitaciones a la hora de manejar proyectos distribuidos o gestionar cambios de manera eficiente. Con Git, los desarrolladores podían trabajar de forma más autónoma, sin depender de un servidor central. Esto permitió que equipos de desarrollo de todo el mundo pudieran colaborar de manera más eficiente, incluso sin estar conectados todo el tiempo a la misma red.</p>
 <p>Git es una herramienta distribuida. Esto significa que <strong>cada desarrollador tiene una copia completa del repositorio</strong> en su propia máquina, con todo el historial de cambios. No depende de un servidor central para saber qué ha pasado en el proyecto, lo que lo hace ideal para trabajar de forma remota o cuando la conexión a internet no es estable. Además, la estructura distribuida <strong>permite trabajar de manera mucho más segura</strong>: si un servidor central se cae, todos los colaboradores aún tienen acceso completo al proyecto en sus máquinas locales.</p>
-<h2>El crecimiento de Git gracias a plataformas como GitHub</h2>
+<h2 id="el-crecimiento-de-git-gracias-a-plataformas-como-github">El crecimiento de Git gracias a plataformas como GitHub<a class="headerlink" href="#el-crecimiento-de-git-gracias-a-plataformas-como-github" title="Permanent link">¶</a></h2>
 <p>Las plataformas como <strong>GitHub</strong>, <strong>GitLab</strong> y <strong>Bitbucket</strong> jugaron un papel clave en la popularización de Git. Estas plataformas no solo permitieron almacenar repositorios remotos de forma segura, sino que también agregaron funcionalidades que facilitaron la colaboración, como <em>pull requests</em>, revisiones de código y gestión de proyectos. GitHub, en particular, impulsó el software de código abierto a otro nivel al centralizar la colaboración y simplificar la contribución de miles de desarrolladores en todo el mundo.</p>
-<h2>Git y la cultura de código abierto</h2>
+<h2 id="git-y-la-cultura-de-codigo-abierto">Git y la cultura de código abierto<a class="headerlink" href="#git-y-la-cultura-de-codigo-abierto" title="Permanent link">¶</a></h2>
 <p>Uno de los mayores logros de Git ha sido su impacto en el <strong>software de código abierto</strong>. Gracias a plataformas como GitHub, miles de desarrolladores han podido colaborar en proyectos globales sin estar físicamente presentes en el mismo lugar. Git permitió que el código abierto creciera a una velocidad nunca antes vista, con contribuciones de miles de personas alrededor del mundo. Esto cambió la forma en que las aplicaciones se desarrollan, distribuyen y mantienen.</p>
-<h2>Principales conceptos de Git</h2>
+<h2 id="principales-conceptos-de-git">Principales conceptos de Git<a class="headerlink" href="#principales-conceptos-de-git" title="Permanent link">¶</a></h2>
 <p>Git está lleno de términos que a primera vista pueden sonar complicados, pero en realidad son bastante fáciles de entender una vez te acostumbras a ellos. Aquí te dejo algunos de los más importantes:</p>
 <ul>
 <li>
@@ -195,7 +205,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><strong>Remote</strong>: Aunque tu repositorio local tiene todo el historial de cambios, en equipos grandes es común tener un <strong>repositorio remoto</strong> (en GitHub, GitLab, etc.) donde se almacena el código y se sincronizan los cambios entre varios desarrolladores.</p>
 </li>
 </ul>
-<h2>Flujo de trabajo básico en Git</h2>
+<h2 id="flujo-de-trabajo-basico-en-git">Flujo de trabajo básico en Git<a class="headerlink" href="#flujo-de-trabajo-basico-en-git" title="Permanent link">¶</a></h2>
 <p>Un flujo de trabajo típico en Git sigue algunos pasos básicos. Supongamos que estás trabajando en una nueva característica de un proyecto. Primero, <strong>clonas el repositorio remoto</strong> en tu máquina local con el comando <code>clone</code>:</p>
 <pre><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span><span class="p">&amp;</span>lt<span class="p">;</span>url-del-repo<span class="p">&amp;</span>gt<span class="p">;</span>
 </pre></div>
@@ -221,7 +231,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 </pre>
 <p>Donde <em>origin</em> es el nombre del repositorio remoto, que se suele llamar <em>origin</em>, pero no es un nombre cerrado.</p>
-<h2>Algunas limitaciones o desafíos de Git</h2>
+<h2 id="algunas-limitaciones-o-desafios-de-git">Algunas limitaciones o desafíos de Git<a class="headerlink" href="#algunas-limitaciones-o-desafios-de-git" title="Permanent link">¶</a></h2>
 <p>Aunque Git es increíblemente poderoso, tiene una curva de aprendizaje. Algunos conceptos, como el <strong>rebase</strong> o la <strong>resolución de conflictos</strong>, pueden resultar confusos para quienes se inician. Además, si no se usan bien las herramientas de Git, se pueden generar conflictos difíciles de resolver, especialmente cuando se trabaja en equipos grandes. A pesar de esto, la flexibilidad y el control que Git ofrece a los desarrolladores supera ampliamente estas dificultades.</p>
 <p>Git no solo cambió la forma en que desarrollamos software, sino que también creó una nueva manera de pensar sobre la colaboración y el control de versiones. Lo que comenzó como una herramienta para el desarrollo de Linux se convirtió rápidamente en el estándar de facto para cualquier tipo de proyecto de software.</p>
 <p>Los detalles, los dejo para el siguiente artículo...</p>

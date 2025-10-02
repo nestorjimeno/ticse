@@ -1,11 +1,36 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
-from markdown import markdown
+from markdown import Markdown
+from markdown.extensions import Extension
+from markdown.extensions.toc import TocExtension
+from markdown.treeprocessors import Treeprocessor
+import re
+import unicodedata
 from slugify import slugify
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 from tag import Tag
+
+class ExternalLinksTreeprocessor(Treeprocessor):
+    def run(self, root):
+        for el in root.iter("a"):
+            href = el.get("href", "")
+            # Solo para links externos
+            if href.startswith("http://") or href.startswith("https://"):
+                el.set("target", "_blank")
+                el.set("rel", "noreferrer")
+
+
+class ExternalLinksExtension(Extension):
+    def extendMarkdown(self, md):
+        md.treeprocessors.register(ExternalLinksTreeprocessor(md), "extlinks", 15)
+
+
+def myslugify(value, sep):
+    value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]+", sep, value.lower()).strip(sep)
+
 
 class Post:
     def __init__(self, title, content, author, date=None, tags=None, language=None):
@@ -19,7 +44,7 @@ class Post:
         """
         self.title = title
         self.content = content
-        self.content_html = self.markdown_with_syntax_highlight(self.content)
+        self.content_html, self.toc = self.markdown_with_syntax_highlight(self.content)
         self.author = author
         self.date = date or datetime.now().strftime('%Y-%m-%d')
         self.language = language
@@ -81,8 +106,11 @@ class Post:
         return f"Post(title='{self.title}', author='{self.author}', date='{self.date}', tags='{self.tags}')"
 
     def markdown_with_syntax_highlight(self, markdown_text, theme="one-dark"):
+
+        md = Markdown(extensions=['fenced_code', TocExtension(slugify=myslugify, permalink=True, title="Índice"), ExternalLinksExtension()])
+
         # Convertir Markdown a HTML con fenced_code habilitado
-        html_output = markdown(markdown_text, extensions=['fenced_code'])
+        html_output = md.convert(markdown_text)
 
         # Aplicar resaltado de sintaxis con Pygments
         soup = BeautifulSoup(html_output, 'html.parser')
@@ -133,4 +161,4 @@ class Post:
         soup = str(soup).replace('&amp;gt;', '>')
         
         # Devolver CSS y HTML final
-        return f"{full_css}\n{soup}"
+        return f"{full_css}\n{soup}", md.toc

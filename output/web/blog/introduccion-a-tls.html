@@ -54,6 +54,16 @@
     </div>
   </header>
   <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#conexion-inicial-o-handshake">Conexión inicial o handshake</a></li>
+<li><a href="#que-es-una-autoridad-certificadora">¿Qué es una Autoridad Certificadora?</a><ul>
+<li><a href="#autoridad-certificadora-raiz">Autoridad Certificadora raíz</a></li>
+<li><a href="#como-ver-tus-certificados">Cómo ver tus certificados</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
     <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -170,7 +180,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- language: spanish -->
 <p>TLS, siglas de Transport Layer Security (Seguridad en la Capa de Transporte), es un protocolo de seguridad, es decir, un conjunto de reglas, que define cómo se cifran las comunicaciones en internet para proteger la privacidad y asegurar la integridad de los datos entre un cliente (generalmente un navegador) y un servidor.</p>
 <p>Vamos a verlo con un ejemplo. </p>
-<h2>Conexión inicial o <em>handshake</em></h2>
+<h2 id="conexion-inicial-o-handshake">Conexión inicial o <em>handshake</em><a class="headerlink" href="#conexion-inicial-o-handshake" title="Permanent link">¶</a></h2>
 <p>Cuando un navegador accede a una web, por ejemplo https://nestorjimeno.com, se produce lo siguiente:</p>
 <ol>
 <li>
@@ -207,7 +217,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Cuando cierras la web o se termina la sesión, la clave de sesión se descarta y, la próxima vez que se acceda a la web, se repite el proceso.</p>
 </li>
 </ol>
-<h2>¿Qué es una Autoridad Certificadora?</h2>
+<h2 id="que-es-una-autoridad-certificadora">¿Qué es una Autoridad Certificadora?<a class="headerlink" href="#que-es-una-autoridad-certificadora" title="Permanent link">¶</a></h2>
 <p>Una Autoridad Certificadora (CA, por sus siglas en inglés) es una entidad de confianza que emite certificados digitales. Estos certificados se usan para probar la identidad de un sitio web, persona o dispositivo en Internet y aseguran que, cuando te conectas a un servidor, puedes confiar en que realmente es quien dice ser y que la comunicación será segura. Por ejemplo, cuando entras a https://google.com, tu navegador confía en Google porque su certificado está firmado por una CA reconocida como DigiCert o Let’s Encrypt.</p>
 <p>Las CAs funcionan en un modelo jerárquico:</p>
 <ol>
@@ -237,7 +247,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </li>
 </ol>
 <p>Esto se llama cadena de confianza o <strong>“chain of trust”</strong>.</p>
-<h3>Autoridad Certificadora raíz</h3>
+<h3 id="autoridad-certificadora-raiz">Autoridad Certificadora raíz<a class="headerlink" href="#autoridad-certificadora-raiz" title="Permanent link">¶</a></h3>
 <p>En octubre de 2025, existen más de 85 Autoridades Certificadoras (CAs) reconocidas por navegadores y sistemas operativos. Sin embargo, solo una pequeña fracción de ellas emite la gran mayoría de los certificados digitales utilizados en Internet. Las seis principales CAs que emiten el 90% de los certificados SSL/TLS son:</p>
 <ul>
 <li>Let’s Encrypt – 64% del mercado</li>
@@ -255,7 +265,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li>Common CA Database (CCADB): Base de datos pública mantenida por Mozilla y otras organizaciones.</li>
 </ul>
 <p>Las CAs raíz son fundamentales para la seguridad en línea. Si una CA raíz es comprometida, todos los certificados emitidos por ella también lo estarán. Por ello, los navegadores y sistemas operativos actualizan regularmente sus listas de CAs confiables para garantizar la seguridad de los usuarios.</p>
-<h3>Cómo ver tus certificados</h3>
+<h3 id="como-ver-tus-certificados">Cómo ver tus certificados<a class="headerlink" href="#como-ver-tus-certificados" title="Permanent link">¶</a></h3>
 <p>En Windows, <code>certmgr.msc</code> es una herramienta que sirve para administrar certificados digitales en tu sistema. Permite ver, instalar, exportar, eliminar o inspeccionar certificados que usa tu Windows y los programas que dependen de él, desde navegadores a correo o VPN.</p>
 <p>Cuando lo abres (Win + R → <code>certmgr.msc</code> → Enter), verás varias carpetas organizadas por tipo de certificado:</p>
 <ul>

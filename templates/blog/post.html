@@ -28,6 +28,7 @@
     </div>
   </header>
   <section class="single-post-content">
+    {{ post.toc | safe}}
     {{ post.content_html | safe }}
   </section>
 </article>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mi Web</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class='header'>
+        <nav>
+            <div class="logo-container">
+                <a href="https://nestorjimeno.com" class="logo">Néstor Jimeno</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776; <!-- Icono de hamburguesa -->
+            </button>
+            <ul class="navbar" id="navbar">
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="/blog/index.html">Blog</a></li>
+                <li><a href="/sobre-mi.html">Sobre mí</a></li>
+                <li><a href="/contacto.html">Contacto</a></li>
+                <li><a href="/newsletter.html">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+<article>
+  <div class="breadcrumbs">
+    <a href="/index.html">Inicio</a>    >    
+    <a href="/blog/index.html">Blog</a>    >    
+    <a href="/blog/cifrado-simetrico-vs-cifrado-asimetrico.html">Cifrado simétrico vs cifrado asimétrico</a> 
+  </div>
+  <header class="single-post-header">
+    <h1 class="single-post-title">Cifrado simétrico vs cifrado asimétrico</h1>
+    <!--<div class="single-post-meta">
+      <span class="single-post-meta-item">Escrito por: Néstor Jimeno</span>
+    </div>-->
+    <div class="single-post-meta">
+      <span class="single-post-meta-item">Actualizado el jueves 2 de octubre de 2025</span>
+    </div>
+    <div class="single-post-meta">
+      
+      <div class="single-post-tags">
+        
+        <a href="/categorias/criptografia.html" class="single-post-tag">Criptografía</a>
+        
+      </div>
+      
+    </div>
+  </header>
+  <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#cifrado-simetrico">Cifrado simétrico</a><ul>
+<li><a href="#como-funciona-el-cifrado-simetrico">¿Cómo funciona el cifrado simétrico?</a></li>
+<li><a href="#ventajas">Ventajas</a></li>
+<li><a href="#desventajas">Desventajas</a></li>
+<li><a href="#aes-advanced-encryption-standard">AES (Advanced Encryption Standard)</a></li>
+</ul>
+</li>
+<li><a href="#cifrado-asimetrico">Cifrado asimétrico</a><ul>
+<li><a href="#como-funciona-el-cifrado-asimetrico">¿Cómo funciona el cifrado asimétrico?</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusión</a></li>
+</ul>
+</div>
+
+    <style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #282C34; color: #ABB2BF }
+.highlight .c { color: #7F848E } /* Comment */
+.highlight .err { color: #ABB2BF } /* Error */
+.highlight .esc { color: #ABB2BF } /* Escape */
+.highlight .g { color: #ABB2BF } /* Generic */
+.highlight .k { color: #C678DD } /* Keyword */
+.highlight .l { color: #ABB2BF } /* Literal */
+.highlight .n { color: #E06C75 } /* Name */
+.highlight .o { color: #56B6C2 } /* Operator */
+.highlight .x { color: #ABB2BF } /* Other */
+.highlight .p { color: #ABB2BF } /* Punctuation */
+.highlight .ch { color: #7F848E } /* Comment.Hashbang */
+.highlight .cm { color: #7F848E } /* Comment.Multiline */
+.highlight .cp { color: #7F848E } /* Comment.Preproc */
+.highlight .cpf { color: #7F848E } /* Comment.PreprocFile */
+.highlight .c1 { color: #7F848E } /* Comment.Single */
+.highlight .cs { color: #7F848E } /* Comment.Special */
+.highlight .gd { color: #ABB2BF } /* Generic.Deleted */
+.highlight .ge { color: #ABB2BF } /* Generic.Emph */
+.highlight .ges { color: #ABB2BF } /* Generic.EmphStrong */
+.highlight .gr { color: #ABB2BF } /* Generic.Error */
+.highlight .gh { color: #ABB2BF } /* Generic.Heading */
+.highlight .gi { color: #ABB2BF } /* Generic.Inserted */
+.highlight .go { color: #ABB2BF } /* Generic.Output */
+.highlight .gp { color: #ABB2BF } /* Generic.Prompt */
+.highlight .gs { color: #ABB2BF } /* Generic.Strong */
+.highlight .gu { color: #ABB2BF } /* Generic.Subheading */
+.highlight .gt { color: #ABB2BF } /* Generic.Traceback */
+.highlight .kc { color: #E5C07B } /* Keyword.Constant */
+.highlight .kd { color: #C678DD } /* Keyword.Declaration */
+.highlight .kn { color: #C678DD } /* Keyword.Namespace */
+.highlight .kp { color: #C678DD } /* Keyword.Pseudo */
+.highlight .kr { color: #C678DD } /* Keyword.Reserved */
+.highlight .kt { color: #E5C07B } /* Keyword.Type */
+.highlight .ld { color: #ABB2BF } /* Literal.Date */
+.highlight .m { color: #D19A66 } /* Literal.Number */
+.highlight .s { color: #98C379 } /* Literal.String */
+.highlight .na { color: #E06C75 } /* Name.Attribute */
+.highlight .nb { color: #E5C07B } /* Name.Builtin */
+.highlight .nc { color: #E5C07B } /* Name.Class */
+.highlight .no { color: #E06C75 } /* Name.Constant */
+.highlight .nd { color: #61AFEF } /* Name.Decorator */
+.highlight .ni { color: #E06C75 } /* Name.Entity */
+.highlight .ne { color: #E06C75 } /* Name.Exception */
+.highlight .nf { color: #61AFEF; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #E06C75 } /* Name.Label */
+.highlight .nn { color: #E06C75 } /* Name.Namespace */
+.highlight .nx { color: #E06C75 } /* Name.Other */
+.highlight .py { color: #E06C75 } /* Name.Property */
+.highlight .nt { color: #E06C75 } /* Name.Tag */
+.highlight .nv { color: #E06C75 } /* Name.Variable */
+.highlight .ow { color: #56B6C2 } /* Operator.Word */
+.highlight .pm { color: #ABB2BF } /* Punctuation.Marker */
+.highlight .w { color: #ABB2BF } /* Text.Whitespace */
+.highlight .mb { color: #D19A66 } /* Literal.Number.Bin */
+.highlight .mf { color: #D19A66 } /* Literal.Number.Float */
+.highlight .mh { color: #D19A66 } /* Literal.Number.Hex */
+.highlight .mi { color: #D19A66 } /* Literal.Number.Integer */
+.highlight .mo { color: #D19A66 } /* Literal.Number.Oct */
+.highlight .sa { color: #98C379 } /* Literal.String.Affix */
+.highlight .sb { color: #98C379 } /* Literal.String.Backtick */
+.highlight .sc { color: #98C379 } /* Literal.String.Char */
+.highlight .dl { color: #98C379 } /* Literal.String.Delimiter */
+.highlight .sd { color: #98C379 } /* Literal.String.Doc */
+.highlight .s2 { color: #98C379 } /* Literal.String.Double */
+.highlight .se { color: #98C379 } /* Literal.String.Escape */
+.highlight .sh { color: #98C379 } /* Literal.String.Heredoc */
+.highlight .si { color: #98C379 } /* Literal.String.Interpol */
+.highlight .sx { color: #98C379 } /* Literal.String.Other */
+.highlight .sr { color: #98C379 } /* Literal.String.Regex */
+.highlight .s1 { color: #98C379 } /* Literal.String.Single */
+.highlight .ss { color: #98C379 } /* Literal.String.Symbol */
+.highlight .bp { color: #E5C07B } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #56B6C2; font-weight: bold } /* Name.Function.Magic */
+.highlight .vc { color: #E06C75 } /* Name.Variable.Class */
+.highlight .vg { color: #E06C75 } /* Name.Variable.Global */
+.highlight .vi { color: #E06C75 } /* Name.Variable.Instance */
+.highlight .vm { color: #E06C75 } /* Name.Variable.Magic */
+.highlight .il { color: #D19A66 } /* Literal.Number.Integer.Long */
+
+            div.highlight {
+                padding: 20px;
+                border-radius: 10px;
+                margin: 20px 0 0 0;
+            }
+            pre {
+                word-wrap: break-word;       /* Divide palabras largas si es necesario */
+                overflow-x: auto;            /* Añade desplazamiento horizontal si el contenido es demasiado ancho */
+                max-width: 100%;             /* Limita el ancho del bloque al contenedor */
+                border-radius: 5px;          /* Bordes redondeados */
+            }
+            code {
+                color: #eb5757;
+                border-width: 0px;
+                padding: 2px 5px;
+                font-size: .9em;
+                font-weight: 600;
+                margin-left: .125rem;
+                margin-right: .125rem;
+                border-radius: .375rem;
+                --tw-bg-opacity: 1;
+                background-color: rgb(236 236 236 / var(--tw-bg-opacity, 1));
+            }
+            </style>
+<!-- author: Néstor Jimeno -->
+<!-- date: 2025-10-02 -->
+<!-- tags: Criptografía -->
+<!-- language: spanish -->
+<h2 id="cifrado-simetrico">Cifrado simétrico<a class="headerlink" href="#cifrado-simetrico" title="Permanent link">¶</a></h2>
+<p>El <strong>cifrado simétrico</strong> es un método de criptografía en el que <strong>la misma clave secreta</strong> se utiliza tanto para cifrar, convertir el mensaje en un formato ilegible, como para descifrar, para volverlo a su forma original.</p>
+<ul>
+<li>La <strong>clave secreta</strong> es una secuencia de bits conocida sólo por los participantes autorizados.</li>
+<li>El mensaje original o <strong>plaintext</strong> es el texto, la información, que se quiere proteger.</li>
+<li>El mensaje cifrado o <strong>ciphertext</strong> es el resultado ilegible que se obtiene tras aplicar la clave y el algoritmo de cifrado.</li>
+</ul>
+<h3 id="como-funciona-el-cifrado-simetrico">¿Cómo funciona el cifrado simétrico?<a class="headerlink" href="#como-funciona-el-cifrado-simetrico" title="Permanent link">¶</a></h3>
+<p>En primer lugar se genera la clave secreta segura. Por ejemplo en AES (Advanced Encryption Standard), un algoritmo ampliamente usado en la actualidad, se pueden utilizar claves de 128, 192 o 256 bits. La clave debe ser aleatoria y única y su tamaño se debe elegir en función de cada aplicación, ya que cada bit añade complejidad y resistencia frente a ataques de fuerza bruta, pero hace más lentos los cálculos.</p>
+<p>Una vez se tiene la clave secreta, se aplica un algoritmo que la combina con el mensaje, convirtiéndolo en datos ilegibles. Este <em>ciphertext</em> puede transmitirse incluso por canales inseguros.</p>
+<p>Cuando el mensaje llega al receptor, éste aplica <strong>la misma clave</strong> y el <strong>algoritmo inverso</strong> para recuperar el mensaje original.</p>
+<h3 id="ventajas">Ventajas<a class="headerlink" href="#ventajas" title="Permanent link">¶</a></h3>
+<p>El cifrado simétrico es muy rápido, lo que lo hace adecuado cuando se trabaja con grandes volúmenes de datos. Además, sus algoritmos están probados y se consideran eficientes y su consumo de recursos es bajo.</p>
+<h3 id="desventajas">Desventajas<a class="headerlink" href="#desventajas" title="Permanent link">¶</a></h3>
+<p>Todos los participantes deben conocer la clave que se utiliza para encriptar, por lo que hay que compartirla, con el riesgo que eso implica si se intercepta por un agente ajeno. </p>
+<p>Además, la escalabilidad es limitada, ya que para <code>n</code> usuarios, se necesitan <code>n * (n - 1) / 2</code> claves diferentes.</p>
+<p>En la práctica, la desventaja de la "distribución de la clave" se resuelve mediante un <strong>cifrado híbrido</strong>. Se utiliza el <a href="#cifrado-asimétrico">cifrado asimétrico</a> (como RSA, ECC o Diffie-Hellman) para intercambiar la clave secreta de forma segura. Una vez que la clave simétrica (por ejemplo, para AES) llega de forma segura al destinatario, se utiliza la rapidez del cifrado simétrico para cifrar y descifrar el gran volumen de datos</p>
+<h3 id="aes-advanced-encryption-standard">AES (Advanced Encryption Standard)<a class="headerlink" href="#aes-advanced-encryption-standard" title="Permanent link">¶</a></h3>
+<p>AES es un cifrado por bloques, lo que significa que divide el mensaje en bloques de 128 bits (16 bytes). Cada bloque se cifra de forma independiente aplicando una serie de transformaciones matemáticas usando la clave secreta.</p>
+<p>AES puede usar claves de 128 bits (lo más habitual), 192 bits o 256 bits y la longitud de la clave determina el número de rondas de cifrado: 10, 12 o 14 respectivamente.</p>
+<p>A partir de la clave original se generan varias subclaves, una para cada ronda, mediante un proceso llamado <em>Key Expansion</em>. Este proceso genera tantas claves como se necesiten aplicando una serie de operaciones matemáticas a la subclave anterior.</p>
+<p>Cada subclave tiene el mismo tamaño que un bloque (128 bits) y en cada ronda se mezcla con él mediante la operación <em>AddRoundKey</em>, combinando la clave con los datos y asegurando que el mensaje cifrado dependa totalmente de la clave secreta.</p>
+<p>Los pasos principales para cada ronda son:
+- <strong><em>SubBytes</em></strong>: sustitución de cada byte usando una tabla <em>S-box</em> para introducir confusión.
+- <strong><em>ShiftRows</em></strong>: desplazamiento de las filas de la matriz de bytes para mezclar los datos.
+- <strong><em>MixColumns</em></strong>: combinación de columnas mediante operaciones matemáticas para difusión.
+- <strong><em>AddRoundKey</em></strong>: aplicación de la subclave mediante XOR.</p>
+<p>La última ronda omite <em>MixColumns</em>, pero sigue aplicando <em>AddRoundKey</em> para garantizar la seguridad.</p>
+<p>Por otro lado, como AES es un cifrado simétrico, la misma clave se utiliza para cifrar y descifrar. Por ello, el proceso de desencriptación invierte cada paso del cifrado. Aunque los pasos se aplican “al revés”, la seguridad se mantiene porque cada subclave y operación fue diseñada para ser reversible solo con la clave correcta.</p>
+<p>El detalle del proceso de encriptación con AES se ha simplificado en este artículo y no es exacto, simplemente se pretende dar una visión general que sirva como aproximación al mismo.</p>
+<h2 id="cifrado-asimetrico">Cifrado asimétrico<a class="headerlink" href="#cifrado-asimetrico" title="Permanent link">¶</a></h2>
+<p>El <strong>cifrado asimétrico</strong> es un método de cifrado en el que se usan <strong>dos claves diferentes</strong> pero matemáticamente relacionadas:</p>
+<ul>
+<li>
+<p><strong>Clave pública</strong> (public key): se puede compartir libremente. Sirve para cifrar información que solo el propietario de la clave privada puede descifrar.</p>
+</li>
+<li>
+<p><strong>Clave privada</strong> (private key): se mantiene en secreto. Sirve para descifrar mensajes que se cifraron con la clave pública correspondiente o para firmar digitalmente.</p>
+</li>
+</ul>
+<p>A diferencia del cifrado simétrico, donde la misma clave se usa para cifrar y descifrar, aquí hay un par de claves con funciones complementarias. El cifrado asimétrico se basa en problemas matemáticos difíciles de resolver que garantizan que, aunque alguien conozca la clave pública, no pueda derivar la clave privada fácilmente, es decir, operaciones fáciles de hacer en una dirección, pero muy difíciles de invertir sin la clave privada.</p>
+<h3 id="como-funciona-el-cifrado-asimetrico">¿Cómo funciona el cifrado asimétrico?<a class="headerlink" href="#como-funciona-el-cifrado-asimetrico" title="Permanent link">¶</a></h3>
+<p>El cifrado asimétrico se puede utilizar para dos procesos diferentes: cifrado de mensajes o firma digital.</p>
+<p>El objetivo del cifrado de mensajes es garantizar la confidencialidad de los datos. Para eso, una persona genera un par de claves: clave pública (Kpub) que puede compartir libremente y clave privada (Kpriv), que mantiene en secreto.</p>
+<p>Para enviar un mensaje seguro a esta persona, se cifra el mensaje usando su clave pública (Kpub). Esto genera un <em>ciphertext</em> ilegible para cualquiera que lo intercepte.</p>
+<p>Cuando esta persona recibe el mensaje, usa su clave privada (Kpriv) para descifrarlo. Solo él puede recuperar el mensaje original, ya que sólo él conoce la clave privada.</p>
+<p>El objetivo de la firma digital es garantizar autenticidad e integridad, es decir, demostrar que el mensaje proviene realmente del remitente y no ha sido modificado.</p>
+<p>Para eso, un emisor genera un resumen (hash) del mensaje usando un algoritmo hash seguro (SHA-256, por ejemplo) y cifra el hash con su clave privada (Kpriv). Este resultado es la firma digital.</p>
+<p>Luego, envía tanto el mensaje original como la firma.</p>
+<p>El receptor, cuando recibe estos datos, descifra la firma usando la clave pública de del emisor (Kpub), obteniendo el hash original y calcula el hash del mensaje recibido. Si los dos hash son iguales, el mensaje es auténtico y no ha sufrido alteraciones.</p>
+<h1 id="conclusion">Conclusión<a class="headerlink" href="#conclusion" title="Permanent link">¶</a></h1>
+<p>El cifrado simétrico y el cifrado asimétrico son dos pilares fundamentales de la criptografía moderna, cada uno con sus fortalezas y limitaciones.</p>
+<p>El cifrado simétrico es rápido y eficiente, ideal para proteger grandes volúmenes de datos, pero requiere que todos los participantes compartan previamente la misma clave secreta, lo que complica la escalabilidad en sistemas con muchos usuarios. Algoritmos como AES permiten cifrar y descifrar de forma segura mediante subclaves generadas a partir de la clave original.</p>
+<p>El cifrado asimétrico, en cambio, resuelve el problema de la distribución de claves gracias a su par de claves pública y privada. Permite cifrar mensajes sin necesidad de compartir secretos y garantiza autenticidad mediante firmas digitales, aunque su rendimiento es menor en comparación con los algoritmos simétricos.</p>
+<p>En la práctica, la mayoría de los sistemas seguros combinan ambos métodos mediante cifrado híbrido: se utiliza el cifrado asimétrico para intercambiar de forma segura una clave simétrica, y luego se emplea el cifrado simétrico para proteger eficientemente los datos. Esta combinación aprovecha lo mejor de ambos mundos: la seguridad y autenticidad del cifrado asimétrico junto con la velocidad y eficiencia del cifrado simétrico.</p>
+  </section>
+</article>
+
+    </main>
+
+    <!-- Botón para volver arriba con flecha -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver al inicio">
+        ↑
+    </button>
+  
+
+    <footer>
+        <p>&copy; 2025 nestorjimeno.com - Todos los derechos reservados.</p>
+        <p><a href="/aviso-legal.html" target="_blank">Aviso legal</a> - <a href="/politica-de-privacidad.html" target="_blank">Política de privacidad</a> - <a href="/politica-de-cookies.html" target="_blank">Política de cookies</a></p>
+
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

@@ -54,6 +54,18 @@
     </div>
   </header>
   <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#que-es-postgresql">¿Qué es PostgreSQL?</a></li>
+<li><a href="#un-poco-de-historia">Un poco de historia</a></li>
+<li><a href="#por-que-postgresql-es-tan-popular">¿Por qué PostgreSQL es tan popular?</a></li>
+<li><a href="#instalacion-y-primeros-pasos">Instalación y primeros pasos</a><ul>
+<li><a href="#primeros-comandos">Primeros comandos</a></li>
+</ul>
+</li>
+<li><a href="#caracteristicas-avanzadas">Características avanzadas</a></li>
+</ul>
+</div>
+
     <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -170,7 +182,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- language: spanish -->
 <p>Si alguna vez has trabajado con <strong>bases de datos</strong>, es probable que te suene <strong>PostgreSQL</strong>. Pero, si no lo has hecho todavía, déjame decirte que es uno de los sistemas de gestión de bases de datos más completos y poderosos que existen. Y lo mejor de todo, es <strong>open source</strong>, lo que significa que puedes usarlo de manera gratuita y tener acceso completo a su código fuente.</p>
 <p>PostgreSQL es una <strong>base de datos relacional</strong>, es mucho más que una simple herramienta para almacenar datos. Se conoce por ser <strong>robusta, escalable y flexible</strong>, lo que la convierte en la opción preferida para muchos proyectos, desde aplicaciones simples hasta sistemas críticos para empresas de todo el mundo. En este artículo, te voy a contar qué hace tan especial a PostgreSQL y por qué es tan popular entre los desarrolladores.</p>
-<h2>¿Qué es PostgreSQL?</h2>
+<h2 id="que-es-postgresql">¿Qué es PostgreSQL?<a class="headerlink" href="#que-es-postgresql" title="Permanent link">¶</a></h2>
 <p>PostgreSQL es un sistema de gestión de bases de datos relacional (RDBMS), que significa que <strong>organiza los datos en tablas y usa relaciones entre ellas</strong> para gestionar la información. Lo que hace que PostgreSQL destaque sobre otros sistemas como <strong>MySQL</strong> o <strong>SQLite</strong> es su potente conjunto de características.</p>
 <p>Algunas de sus características destacadas incluyen:</p>
 <ul>
@@ -187,10 +199,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Soporte para SQL y consultas complejas: Si vienes de un entorno SQL tradicional, PostgreSQL es completamente compatible con SQL estándar. Pero no solo eso, sino que puedes escribir consultas súper complejas, incluidas subconsultas, uniones, y funciones agregadas.</p>
 </li>
 </ul>
-<h2>Un poco de historia</h2>
+<h2 id="un-poco-de-historia">Un poco de historia<a class="headerlink" href="#un-poco-de-historia" title="Permanent link">¶</a></h2>
 <p>PostgreSQL tiene una larga historia que se remonta a la década de los 80. Fue creado por <strong>Michael Stonebraker</strong> y su equipo en la Universidad de California, Berkeley, como parte de un proyecto llamado Postgres. La idea era mejorar las bases de datos relacionales existentes, permitiendo la incorporación de nuevas características como los tipos de datos complejos y consultas más avanzadas.</p>
 <p>Con el tiempo, Postgres evolucionó a lo que conocemos hoy como <strong>PostgreSQL</strong>. El proyecto <strong>ha sido completamente abierto desde sus inicios</strong> y sigue siendo mantenido por una comunidad activa de desarrolladores. Hoy en día, es utilizado por algunas de las plataformas más grandes, como <strong>Instagram</strong>, <strong>Spotify</strong> y <strong>Netflix</strong>, lo que demuestra su confiabilidad y escalabilidad.</p>
-<h2>¿Por qué PostgreSQL es tan popular?</h2>
+<h2 id="por-que-postgresql-es-tan-popular">¿Por qué PostgreSQL es tan popular?<a class="headerlink" href="#por-que-postgresql-es-tan-popular" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>Es <strong>completamente gratuito</strong>: Al ser open source, puedes descargar y usar PostgreSQL sin pagar un solo euro. Esto lo hace accesible para cualquier tipo de proyecto, desde startups hasta grandes empresas.</p>
@@ -208,8 +220,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Consistencia y confiabilidad: PostgreSQL es famoso por su fiabilidad. Utiliza un sistema de commit log para registrar todas las operaciones realizadas en la base de datos, lo que asegura que no se pierdan datos, incluso si el sistema falla repentinamente.</p>
 </li>
 </ul>
-<h2>Instalación y primeros pasos</h2>
-<p>Instalar PostgreSQL en Windows es sencillo y solo requiere unos pocos pasos. Primero, descarga el instalador desde el sitio oficial de PostgreSQL: <a href="https://www.postgresql.org/download/windows/">https://www.postgresql.org/download/windows/</a>.</p>
+<h2 id="instalacion-y-primeros-pasos">Instalación y primeros pasos<a class="headerlink" href="#instalacion-y-primeros-pasos" title="Permanent link">¶</a></h2>
+<p>Instalar PostgreSQL en Windows es sencillo y solo requiere unos pocos pasos. Primero, descarga el instalador desde el sitio oficial de PostgreSQL: <a href="https://www.postgresql.org/download/windows/" rel="noreferrer" target="_blank">https://www.postgresql.org/download/windows/</a>.</p>
 <p>Una vez que hayas descargado el instalador, sigue estos pasos:</p>
 <ul>
 <li>Ejecuta el archivo descargado y selecciona los componentes que deseas instalar (normalmente los predeterminados son suficientes).</li>
@@ -222,7 +234,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </pre></div>
 </pre>
 <p>Esto te pedirá la contraseña que configuraste durante la instalación, y una vez ingresada, estarás dentro de la interfaz de línea de comandos de PostgreSQL.</p>
-<h3>Primeros comandos</h3>
+<h3 id="primeros-comandos">Primeros comandos<a class="headerlink" href="#primeros-comandos" title="Permanent link">¶</a></h3>
 <p>Algunos de los primeros comandos que puedes probar al iniciar con PostgreSQL son:</p>
 <p>Ver las bases de datos:</p>
 <pre><div class="highlight"><pre><span></span><span class="err">\</span><span class="n">l</span>
@@ -240,7 +252,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <pre><div class="highlight"><pre><span></span><span class="err">\</span><span class="n">dt</span>
 </pre></div>
 </pre>
-<h2>Características avanzadas</h2>
+<h2 id="caracteristicas-avanzadas">Características avanzadas<a class="headerlink" href="#caracteristicas-avanzadas" title="Permanent link">¶</a></h2>
 <p>Cuando te sientas más cómodo con PostgreSQL, hay un montón de características avanzadas que puedes explorar. Algunas de las más populares son:</p>
 <ul>
 <li>

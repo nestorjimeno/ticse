@@ -54,6 +54,14 @@
     </div>
   </header>
   <section class="single-post-content">
+    <div class="toc"><span class="toctitle">Índice</span><ul>
+<li><a href="#introduccion">Introducción</a></li>
+<li><a href="#que-es-un-contenedor">¿Qué es un contenedor?</a></li>
+<li><a href="#que-es-una-imagen">¿Qué es una imagen?</a></li>
+<li><a href="#iniciar-un-contenedor">Iniciar un contenedor</a></li>
+</ul>
+</div>
+
     <style>pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -168,13 +176,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- date: 2025-02-20 -->
 <!-- tags: Docker, Desarrollo de software -->
 <!-- language: spanish -->
-<h2>Introducción</h2>
+<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">¶</a></h2>
 <p>Docker es una herramienta que permite empaquetar aplicaciones y sus dependencias en <strong>contenedores</strong> ligeros, asegurando que funcionen de la misma manera en cualquier sistema. </p>
 <p>Estos contenedores proporcionan un <strong>entorno aislado</strong> que garantiza que la aplicación se ejecute de manera consistente en cualquier sistema, ya sea en desarrollo, pruebas o producción. Al eliminar las diferencias entre los entornos, Docker facilita la colaboración y mejora la eficiencia, permitiendo a los desarrolladores centrarse en el código sin preocuparse por los problemas de compatibilidad.</p>
-<h2>¿Qué es un contenedor?</h2>
+<h2 id="que-es-un-contenedor">¿Qué es un contenedor?<a class="headerlink" href="#que-es-un-contenedor" title="Permanent link">¶</a></h2>
 <p>Un <strong>contenedor</strong> en Docker es una unidad ligera y portátil que encapsula una aplicación junto con todas sus dependencias. Cada contenedor es una instancia aislada basada en una <strong>imagen</strong>, con su propio sistema de archivos, variables de entorno y red.</p>
 <p>A diferencia de las máquinas virtuales, que requieren un sistema operativo completo para cada instancia, los contenedores comparten el kernel del sistema operativo anfitrión, lo que los hace más eficientes.</p>
-<h2>¿Qué es una imagen?</h2>
+<h2 id="que-es-una-imagen">¿Qué es una imagen?<a class="headerlink" href="#que-es-una-imagen" title="Permanent link">¶</a></h2>
 <p>Una <strong>imagen</strong> Docker es una plantilla que contiene todo lo necesario para ejecutar una aplicación: código, dependencias, configuraciones y un sistema de archivos mínimo.</p>
 <p>Las imágenes sirven como base para crear <strong>contenedores</strong>, que son instancias en ejecución de esas imágenes. Podemos pensar en las imagenes como cuando en 
 programación utilizamos clases. Una imagen es una clase y un contenedor es una instancia de esa clase. Podemos crear muchos contenedores a partir de una imagen, 
@@ -184,7 +192,7 @@ de la misma manera que podemos crear muchos objetos a partir de una clase.</p>
 </pre></div>
 </pre>
 <p>Más adelante veremos cómo crear imagenes propias y cómo descargar imagenes creadas por otros.</p>
-<h2>Iniciar un contenedor</h2>
+<h2 id="iniciar-un-contenedor">Iniciar un contenedor<a class="headerlink" href="#iniciar-un-contenedor" title="Permanent link">¶</a></h2>
 <p>Imagina que quieres ejecutar un sistema <strong>Ubuntu</strong> y abrir una terminal, bastará con hacer lo siguiente:</p>
 <pre><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
 </pre></div>
